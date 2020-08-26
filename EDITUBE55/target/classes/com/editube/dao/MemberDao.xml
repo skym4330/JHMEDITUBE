@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 1.parameterType에 1개의 Type만 올 수 있다. Type 여러개인경우 생략할 것. 2.parameterType이 
+	DTO인 경우 #{필드명} 3.parameterType이 변수인 경우 #{변수명} 4.parameterType이 Map<key,value>타입인 
+	경우 #{key} 5.resultType도 1개만 올수 있는데 1개 이상의 레코드를 검색하는 경우 DTO타입만 명시 6.#{} : 
+	문자열인 경우 ''추가됨 7.${} : 문자열 변환없이 문자 그대로 입력됨 (예, 컬럼명 전달시. 일반적으로는 사용 안함.) 8.parameterType은 
+	생략가능하지만 가독성을 위해 비권장 -->
+
+<mapper namespace="com.editube.dao.MemberDao">
+
+	<select id="getPwd" parameterType="String" resultType="String">
+		SELECT
+		M_PASSWORD FROM M WHERE M_ID=#{id}
+	</select>
+
+	<select id="getMemInfo" parameterType="String"
+		resultType="com.editube.dto.MemberDto">
+		SELECT * FROM M WHERE M_ID=#{id}
+	</select>
+
+	<select id="getMemIn" parameterType="String"
+		resultType="com.editube.dto.MemberDto">
+		SELECT * FROM M WHERE M_ID=#{mr}
+	</select>
+
+	<select id="getMemInfoo" parameterType="String"
+		resultType="com.editube.dto.MemberDto">
+		SELECT * FROM M WHERE M_NICKNAME=#{nick}
+	</select>
+
+	<insert id="memberInsert"
+		parameterType="com.editube.dto.MemberDto">
+		INSERT INTO M
+		VALUES(#{m_nickname},#{m_id},DEFAULT,#{m_name},#{m_birth},#{m_password},#{m_phonenum},DEFAULT,DEFAULT,DEFAULT,DEFAULT)
+	</insert>
+	<update id="typechange" parameterType="String">
+		UPDATE M SET M_USERTYPE=2
+		WHERE M_NICKNAME=#{nick}
+	</update>
+	<update id="typechangee" parameterType="String">
+		UPDATE M SET M_USERTYPE=1
+		WHERE M_NICKNAME=#{nick}
+	</update>
+	<select id="idCheck" parameterType="String" resultType="Integer">
+		SELECT
+		COUNT(*) FROM MINFO WHERE M_ID=#{mid}
+	</select>
+	<select id="nickCheck" parameterType="String"
+		resultType="Integer">
+		SELECT COUNT(*) FROM MINFO WHERE M_NICKNAME=#{m_nickname}
+	</select>
+	<update id="changepass" parameterType="HashMap">
+		UPDATE MEMBER SET
+		M_PASSWORD=#{cpassword} WHERE M_ID=#{m}
+	</update>
+	<delete id="deleterp" parameterType="String">
+		DELETE FROM MEMBER WHERE
+		M_NICKNAME=#{nk}
+	</delete>
+	<update id="fileInsert" parameterType="HashMap">
+		UPDATE MEMBER SET
+		M_ORINAME=#{oriFileName}, M_SYSNAME=#{sysFileName} WHERE M_ID=#{m}
+	</update>
+
+	<update id="fileDelete" parameterType="String">
+		UPDATE MEMBER SET
+		M_ORINAME='기본이미지.png', M_SYSNAME='기본이미지.png' WHERE M_NICKNAME=#{nick}
+	</update>
+
+	<select id="Idfind" parameterType="HashMap"
+		resultType="com.editube.dto.MemberDto">
+		SELECT M_ID FROM MEMBER WHERE M_NAME=#{name} AND
+		M_PHONENUM=#{phonenum}
+	</select>
+
+	<select id="pwfind" parameterType="String"
+		resultType="com.editube.dto.MemberDto">
+		SELECT * FROM MEMBER WHERE M_ID=#{mid}
+	</select>
+
+	<update id="pwch" parameterType="HashMap">
+		UPDATE MEMBER SET
+		M_PASSWORD=#{pwcheck} WHERE M_ID=#{m}
+	</update>
+
+<select id="allmem" parameterType="String"
+      resultType="com.editube.dto.MemberDto">
+      SELECT M_NICKNAME, M_JOINDATE FROM MEMBER WHERE M_NICKNAME
+      not in(#{nick}) ORDER BY M_JOINDATE DESC
+   </select>
+
+   <select id="dealMemNickSearch" parameterType="String"
+      resultType="com.editube.dto.MemberDto">
+      SELECT M_NICKNAME, M_JOINDATE FROM MEMBER WHERE M_NICKNAME
+      = #{searchNick} AND M_NICKNAME not in(#{nick}) ORDER BY M_JOINDATE DESC
+   </select>
+
+
+
+	<delete id="mdelete" parameterType="String">
+		DELETE FROM MEMBER WHERE
+		M_NICKNAME=#{m_nickname}
+	</delete>
+
+   <select id="searchmem" parameterType="HashMap"
+      resultType="com.editube.dto.MemberDto">
+   <![CDATA[   
+      SELECT M_NICKNAME, M_JOINDATE FROM MEMBER WHERE M_JOINDATE>=#{sDate} AND M_JOINDATE<=#{eDate} ORDER BY M_JOINDATE DESC
+   ]]>
+   </select>
+
+
+
+
+	<insert parameterType="com.editube.dto.CashDto"
+		id="chargingList">
+		INSERT INTO CASH VALUES(DEFAULT, #{ca_mnickname}, NULL, #{ca_incash}, NULL,
+		DEFAULT)
+	</insert>
+
+	<insert parameterType="com.editube.dto.CashDto" id="changemoney">
+		INSERT INTO CASH VALUES(DEFAULT, #{ca_mnickname}, NULL, NULL, #{ca_outcash},
+		DEFAULT)
+	</insert>
+
+	<select resultType="Integer" parameterType="String"
+		id="getTotalInCash">
+		SELECT SUM(CA_INCASH) FROM CASH WHERE CA_MNICKNAME=#{ca_mnickname}
+	</select>
+
+	<select resultType="Integer" parameterType="String"
+		id="getTotalOutCash">
+		SELECT SUM(CA_OUTCASH) FROM CASH WHERE CA_MNICKNAME=#{ca_mnickname}
+	</select>
+
+	<update parameterType="com.editube.dto.CashDto" id="countMyCash">
+		UPDATE MEMBER SET M_MYCASH=#{m_mycash} WHERE M_NICKNAME=#{ca_mnickname}
+	</update>
+
+	<select resultType="Integer" id="getCashCount">
+		SELECT COUNT(*) FROM CA
+	</select>
+
+	<select resultType="com.editube.dto.CashDto"
+		parameterType="HashMap" id="getCashList">
+ 	  <![CDATA[
+      SELECT * FROM CA
+      WHERE CA_MNICKNAME=#{nick} or CA_TARGETNICKNAME=#{nick}
+	  ]]>
+	</select>
+
+	<select resultType="com.editube.dto.CashDto"
+		parameterType="HashMap" id="cashSearch">
+   <![CDATA[   
+      SELECT * FROM CA
+      WHERE CA_MNICKNAME=#{nick}
+      AND CA_DATE <= #{eDate} AND CA_DATE >= #{sDate}
+   ]]>
+	</select>
+	<!-- 혜명메소드 -->
+	<select id="getAllReqList" parameterType="String"
+		resultType="com.editube.dto.RequestDto">
+		SELECT * FROM REQUEST WHERE rq_mnickname = #{nickname} or
+		rq_targetnickname= #{nickname} ORDER BY rq_date DESC
+	</select>
+
+	<select id="getReqList" parameterType="HashMap"
+		resultType="com.editube.dto.RequestDto">
+		SELECT * FROM REQUEST WHERE rq_status = #{status} and
+		(rq_mnickname =#{nickname} or rq_targetnickname=#{nickname})
+		ORDER BY
+		rq_date DESC
+	</select>
+
+	<update id="statusChange"
+		parameterType="com.editube.dto.RequestDto">
+		UPDATE REQUEST SET RQ_STATUS = #{rq_status},
+		RQ_TARGETSTATUS = #{rq_targetstatus}
+		WHERE RQ_NUM=#{rq_num}
+	</update>
+
+	 <insert id="InsertRatFrm" 
+		parameterType="com.editube.dto.RatingDto">
+		INSERT INTO RATING
+		VALUES(RATING_SEQ.NEXTVAL,#{m_nickname},#{ra_score},#{ra_content},#{ra_nickname},#{ra_rqnum})
+	</insert>
+
+	<select id="getUReqList" parameterType="String"
+		resultType="com.editube.dto.RequestDto">
+		SELECT * FROM request WHERE (rq_mnickname = #{m_nickname}
+		AND rq_type = 1) OR (rq_targetnickname = #{m_nickname} AND rq_type=2)
+	</select>
+
+	<select id="getEReqList" parameterType="String"
+		resultType="com.editube.dto.RequestDto">
+		SELECT * FROM request WHERE (rq_mnickname = #{m_nickname}
+		AND rq_type = 2) OR (rq_targetnickname = #{m_nickname} AND rq_type=1)
+	</select>
+
+	<insert id="goReq" parameterType="com.editube.dto.RequestDto">
+		INSERT INTO request
+		VALUES
+		(REQUEST_SEQ.nextval,#{rq_mnickname},#{rq_status},DEFAULT,#{rq_type},#{rq_targetnickname},#{rq_targetstatus},#{rq_bnum})
+	</insert>
+
+	<select id="getmDeal" parameterType="Integer"
+		resultType="com.editube.dto.RequestDto">
+		SELECT * FROM request WHERE rq_targetstatus = #{num}
+	</select>
+
+	<select id="chkStatus" parameterType="Integer"
+		resultType="com.editube.dto.RequestDto">
+		SELECT * FROM REQUEST WHERE rq_num = #{rnum}
+	</select>
+
+	<select id="getUCash" parameterType="Integer"
+		resultType="com.editube.dto.UBoardDto">
+		SELECT * FROM UBLIST_1 WHERE UBNUM = #{bnum}
+	</select>
+
+	<select id="getPortCash" parameterType="String"
+		resultType="com.editube.dto.EBoardDto">
+		SELECT * FROM PLIST_1 WHERE pnickname = #{nick}
+	</select>
+
+	<insert id="CashGoMaster" parameterType="HashMap">
+		INSERT INTO CASH
+		values(sysdate, #{nick}, '관리자',DEFAULT, #{cost}, #{cancel})
+	</insert>
+
+	<insert id="CashGoEdit" parameterType="HashMap">
+		INSERT INTO CASH
+		values(sysdate, '관리자', #{nick}, #{cost}, DEFAULT, #{cancel})
+	</insert>
+
+	<select id="getAlertReq" parameterType="String"
+		resultType="com.editube.dto.RequestDto">
+		SELECT * FROM REQUEST WHERE
+		(rq_mnickname = #{nick} and rq_status IN (1, 5))
+		or (rq_targetnickname = #{nick} and rq_targetstatus IN (1, 5))
+	</select>
+
+	<select id="getRatChk" resultType="Integer" 
+		parameterType="Integer">
+		SELECT COUNT(*) FROM RATING WHERE ra_rqnum = #{bnum}
+	</select>
+
+	<select id="getChatList" parameterType="String"
+		resultType="com.editube.dto.ChatbotDto">
+		SELECT DISTINCT ch_mnickname, ch_targetnickname
+		FROM chatbot
+		WHERE ch_mnickname = #{nick} or ch_targetnickname = #{nick}
+	</select>
+
+	<delete id="deleteChat" parameterType="HashMap">
+		delete chatbot
+		where (ch_mnickname = #{nick} and ch_targetnickname = #{tnick})
+		or (ch_mnickname = #{tnick} and ch_targetnickname = #{nick})
+	</delete>
+
+	<select id="getOneReq" parameterType="String"
+		resultType="Integer">
+		SELECT COUNT(*) FROM REQUEST
+		WHERE (rq_mnickname = #{nick} and rq_status = 1)
+		or (rq_targetnickname = #{nick} and rq_targetstatus = 1)
+	</select>
+
+	<select id="getFiveReq" parameterType="String"
+		resultType="Integer">
+		SELECT COUNT(*) FROM REQUEST
+		WHERE (rq_mnickname = #{nick} and rq_status = 5)
+		or (rq_targetnickname = #{nick} and rq_targetstatus = 5)
+	</select>
+
+	<select id="getPNum" parameterType="String"
+		resultType="com.editube.dto.EBoardDto">
+		SELECT * FROM PLIST_1 WHERE PNICKNAME = #{nick}
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

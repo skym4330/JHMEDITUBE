@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+@font-face { 
+font-family: 'NanumSquareRound'; 
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); 
+font-weight: normal; 
+font-style: normal; 
+}
+
+*{
+	font-family: 'NanumSquareRound';
+}
+
+.uContentWrap{
+	width: 1200px;
+	height: 1500px;
+	margin: 0px auto;
+}
+
+.uContentWrap .uContentAside{
+	width: 300px;
+	height: 1500px;
+	float: left;
+}
+
+.uContentWrap .mainSectionWrap-top{
+	width: 900px;
+	height: 600px;
+	float: left;
+}
+
+.mainSectionWrap-top .pfImageBox{
+	width: 600px;
+	height: 600px;
+	float: left;
+}
+
+.pfImageBox img{
+	width: 550px;
+	height: 550px;
+	margin: 25px;
+	border-radius: 40px;
+}
+
+.mainSectionWrap-top .pfInfoWrap{
+	width: 275px;
+	margin-left: 25px;
+	height: 600px;
+	float: left;
+}
+
+.pfInfoWrap .pfInfoOne{
+	width: 275px;
+	height: 60px;
+	float: left;
+	margin-top: 25px; 
+}
+
+.pfInfoOne h2{
+	float: right;
+}
+.pfInfoOne p{
+	float: left;
+	font-size: 1.3em;
+	line-height: 25px;
+}
+
+.pfInfoWrap .pfInfoTwo{
+	width: 275px;
+	height:100px;
+	float: left;
+}
+
+.pfInfoTwo p{
+	float: left;
+}
+
+.pfInfoWrap .pfInfoThree{
+width: 275px;
+	height: 100px;
+	float: left;
+}
+
+.pfInfoThree p{
+	float: right;
+	color: #fa5400;
+}
+
+.pfInfoThree p span{
+	color: black;
+}
+
+.pfInfoWrap .pfInfoFour{
+	float: left;
+	width: 275px;
+	height: 50px;
+	margin-top: 70px;
+}
+
+
+
+.pfInfoWrap .pfInfoFive{
+	width: 275px;
+	height: 100px;
+	float: left;
+	margin-top: 30px;
+}
+
+.pfInfoFour h2{
+	float: right;
+	
+}
+
+.pfInfoFive button{
+	font-size: 1em;
+}
+
+.pfInfoFive button:focus{
+	outline: none;
+}
+
+.pfInfoFive .btn1{
+	float: left;
+	border-radius: 30px;
+    width: 275px;
+    height: 60px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color : white;
+    background : black;
+}
+.pfInfoFive .btn2{
+	float: left;
+	border-radius: 30px;
+    width: 135px;
+    height: 60px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color : black;
+    background : white;
+    margin-right: 5px;
+}
+
+.pfInfoFive .btn3{
+	float: left;
+	border-radius: 30px;
+    width: 135px;
+    height: 60px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color : black;
+    background : white;
+}
+.pfInfoFive .btn4{
+	float: left;
+	border-radius: 30px;
+    width: 275px;
+    height: 60px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color : white;
+    background : black;
+    display: none;
+}
+.pfInfoFive .btn5{
+	float: left;
+	border-radius: 30px;
+    width: 135px;
+    height: 60px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color : black;
+    background : white;
+    display: none;
+}
+.pfInfoFive .btn6{
+	float: left;
+	border-radius: 30px;
+    width: 275px;
+    height: 60px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color : white;
+    background : black;
+    display: none;
+}
+.pfInfoFive .btn7{
+	float: left;
+	border-radius: 30px;
+    width: 135px;
+    height: 60px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color : black;
+    background : white;
+    display: none;
+}
+.pfInfoFive .btn8{
+	float: left;
+	border-radius: 30px;
+    width: 135px;
+    height: 60px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color : black;
+    background : white;
+    display: none;
+}
+
+.mainSectionWrap .mainSectionWrap-bottom{
+	width: 900px;
+	height: 900px;
+	float: left;
+}
+
+.mainSectionWrap-bottom .uContentTitleWrap{
+	width: 850px;
+	height: 160px;
+
+}
+
+.uContentTitleWrap .uContentTitle{
+	margin: 25px;
+	text-align: center;
+	border-top: 1px solid black;
+	line-height: 70px;
+}
+.mainSectionWrap-bottom .uContentContentWrap{
+	width: 800px;
+	height: 800px;
+	float: left;
+	margin: 25px;
+	margin-left: 75px;
+}

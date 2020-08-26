@@ -1,0 +1,1137 @@
+@font-face { 
+font-family: 'NanumSquareRound'; 
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); 
+font-weight: normal; 
+font-style: normal; 
+}
+
+/* Lazy Load Styles */
+.card-image {
+   display: block;
+   background: #fff center center no-repeat;
+   background-size: cover;
+   vertical-align: top;
+   width: 200px;
+   table-layout: fixed;
+   height: 200px;
+   margin: 0 auto;
+   margin-top:10px;
+}
+
+.card-image > img {
+   display: block;
+   width: 100%;
+   opacity: 0; /* visually hide the img element */
+}
+
+.card-image.is-loaded {
+   filter: none; /* remove the blur on fullres image */
+   transition: filter 1s;
+}
+
+
+
+
+
+.card-list {
+   display: block;
+   margin: 1rem auto;
+   padding: 0;
+   font-size: 0;
+   text-align: center;
+   list-style: none;
+}
+
+.card {
+   display: inline-block;
+   width: 250px;
+   height: 400px;
+   max-width: 20rem;
+   margin:15px 30px;
+   font-size: 1rem;
+   text-decoration: none;
+   overflow: hidden;
+   box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+   transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+   float: left;
+}
+
+.card:hover {
+   transform: translateY(-0.5rem) scale(1.0125);
+   box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+
+.card-description {
+   
+   font-family: 'NanumSquareRound'; 
+   display: block;
+   padding: 1em 0.5em;
+   color: #535353;
+   text-decoration: none;
+}
+
+.card-description > h2 {
+   margin: 0 0 0.5em;
+}
+
+.card-description > p {
+   margin: 0;
+}
+
+
+/*myEPageReqM 부분*/
+.myEPageReqMWrap{
+   width:1400px;
+   margin: 0px auto;
+   height:1500px;
+}
+.myEPageReqMWrap > .myEPageReqMaside{
+   float:left;
+}
+.myEPageReqMWrap > .myEPageReqMSection{
+   float:left;
+   width:1100px;
+   height: 1500px;
+}
+
+.myEPageReqMSection > .myEPageReqMTitle{
+   width:1100px;
+   float:left;
+   height: 125px;
+}
+
+.myEPageReqMTitle > p{
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+   
+}
+
+.myEPageReqMSection > .myEPageReqMSearch{
+   width:1100px;
+   float:left;
+   height: 125px;
+}
+
+.myEPageReqMSearch > p{
+   width:60%;
+   font-family: 'NanumSquareRound';
+   font-size: 1.5em;
+   font-weight: bold;
+   margin-bottom: 80px;
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+}
+
+.myEPageReqMSection > .myEPageReqMContentWrap{
+   width:1100px;
+   float:left;
+   height: 1250px; 
+   border-radius: 30px;
+}
+
+.myEPageReqMContentWrap > .myEPageReqMContentTitle{
+   float:left;
+   width:1100px;
+   height: 100px;
+}
+
+.myEPageReqMContentTitle > .dateMenu{
+   float:left;
+   width:150px;
+   height: 100px;
+   text-align: center;
+}
+
+
+.myEPageReqMContentTitle > .contentMenu{
+   float:left;
+   width:950px;
+   height: 100px;
+   text-align: center;
+}
+.myEPageReqMContentTitle > .statusMenu{
+   float:left;
+   width:200px;
+   height: 100px;
+   text-align: center;
+}
+
+.dateMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+}
+.contentMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+   margin-left: 10px;
+}
+.statusMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+   margin-left: 10px;
+}
+
+.myEPageReqMContentWrap > .myEPageReqMIncontent{
+   float: left;
+   width: 1100px;
+   height: 100px;
+}
+
+.myEPageReqMIncontent > .inDate{
+   float: left;
+   width: 125px;
+   height: 50px;
+}
+
+
+.myEPageReqMIncontent > .inContent{
+   float: left;
+   width: 700px;
+   padding-left: 25px;
+   height: 50px;
+}
+
+.myEPageReqMIncontent > .reqBtn{
+   float: left;
+   width: 225px;
+   height: 50px;
+}
+
+.reqBtn .btnReq{
+}
+
+.reqBtn .btnIng{
+}
+
+.reqBtn .btnSend{
+}
+
+.inDate > p {
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   text-align: center;
+   height: 25px;
+}
+
+.inContent > p{
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   height: 25px;
+   line-height: 25px;
+   width: 600px;
+   text-align: center;
+}
+
+
+/*myEPageCash 부분*/
+.myEPageCashWrap{
+   width:1400px;
+   margin: 0px auto;
+   height:1500px;
+}
+
+.myEPageCashWrap > .myEPageCashaside{
+   float:left;
+}
+.myEPageCashWrap > .myEPageCashSection{
+   float:left;
+   width:1100px;
+   height: 1500px;
+}
+
+.myEPageCashSection > .myEPageCashTitle{
+   width:1100px;
+   float:left;
+   height: 125px;
+}
+
+.myEPageCashTitle > .CashTitleName{
+   width:250px;
+   height: 125px;
+   float:left;
+}
+
+.myEPageCashTitle > .myCash{
+   float:left;
+   width: 850px;
+   height: 125px;
+}
+.CashTitleName > p{
+   float:left;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+}
+
+.myCash > p{
+   float:right;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+}
+.myEPageCashSection > .myEPageCashSearch{
+   width:1100px;
+   float:left;
+   height: 125px;
+}
+
+.myEPageCashSearch > p{
+   width:60%;
+   font-family: 'NanumSquareRound';
+   font-size: 1.5em;
+   font-weight: bold;
+   margin-bottom: 80px;
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+}
+
+.myEPageCashSection > .myEPageCashContentWrap{
+   width:1100px;
+   float:left;
+   height: 1250px; 
+   border-radius: 30px;
+}
+
+.myEPageCashContentWrap > .myEPageCashContentTitle{
+   float:left;
+   width:1100px;
+   height: 100px;
+}
+
+.myEPageCashContentTitle > .CashdateMenu{
+   float:left;
+   width:200px;
+   height: 100px;
+   text-align: center;
+}
+
+
+.myEPageCashContentTitle > .CashcontentMenu{
+   float:left;
+   width:900px;
+   height: 100px;
+   text-align: center;
+}
+
+.CashdateMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+}
+.CashcontentMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+   margin-left: 10px;
+}
+
+.myEPageCashContentWrap > .myEPageCashIncontent{
+   float: left;
+   width: 1100px;
+   height: 1150px;
+}
+
+.myEPageCashIncontent > .CashinDate{
+   float: left;
+   width: 200px;
+   height: 1000px;
+}
+
+
+.myEPageCashIncontent > .CashinContent{
+   float: left;
+   width: 900px;
+   height: 1000px;
+}
+
+.CashinDate > p {
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   text-align: center;
+   height: 25px;
+}
+
+.CashinContent > p{
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   height: 25px;
+   line-height: 25px;
+}
+
+
+
+/*myEPagePf 부분*/
+.myEPagePfWrap{
+   width:1400px;
+   margin: 0px auto;
+}
+.myEPagePfWrap .myEPagePfaside{
+   float:left;
+   width: 300px;
+}
+.myEPagePfWrap .myEPagePfSection{
+   float:left;
+   width: 1100px;
+}
+
+.myEPagePfSection .myEPagePfTitle{
+   width: 1100px;
+   height: 100px;
+   float: left;
+   border-bottom: 0.8px solid #dedfda;
+}
+
+.myEPagePfTitle .CashTitleName{
+   width: 65%;
+   height: 100px;
+   float: left;
+}
+
+.myEPagePfTitle .CashTitleName p{
+   float:left;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+}
+
+.myEPagePfTitle .myCash{
+   width: 35%;
+   height: 100px;
+   float: left;
+}
+
+.myEPagePfTitle .myCash p{
+   float:right;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+}
+
+.myEPagePfSection .UVideoBox{
+   width: 1100px;
+   float: left;
+   height:550px;
+   text-align: center;
+}
+
+.UVideoBox iframe{
+   margin-top: 25px;
+}
+
+.myEPagePfSection .hashTag{
+   float: left;
+   width: 1100px;
+   height: 100px;
+}
+
+
+.myEPagePfSection .hashTag p{
+   font-family: 'NanumSquareRound';
+   font-size: 1.3em;
+   float: right;
+   width: 125px;
+   margin-right: 75px;
+}
+.myEPagePfSection .introduceWrap{
+   width: 1100px;
+   height: 70px;
+   float: left;
+   border-top: 0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+}
+.introduceWrap .introduce{
+   float: left;
+   width: 950px;
+   margin-left:75px;
+   margin-right:75px;
+   height: 75px;
+   text-align: center;
+   
+}
+
+.myEPagePfSection .introduce p{
+   font-family: 'NanumSquareRound';
+   font-size: 1.5em;
+   padding-top: 5px;
+}
+.myEPagePfSection .introduceContentWrap{
+   width: 1100px;
+   float: left;
+   border-top: 0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   }
+.introduceContentWrap .introduceContent{
+   width: 950px;
+   margin-left:75px;
+   margin-right:75px;
+   float: left;
+}
+.myEPagePfSection .introduceContent p{
+   font-family: 'NanumSquareRound';
+}
+.myEPagePfSection .btnWrap{
+   width: 1100px;
+   height: 100px;
+   float: left;
+}
+.btnWrap .btnDiv{
+   width: 950px;
+   margin-left:75px;
+   margin-right:75px;
+   height: 100px;
+   float: left;
+}
+
+.btnWrap button{
+   float: right;
+   margin-right: 10px;
+   margin-top: 20px;
+}
+
+
+/*포트폴리옿 수정페이지*/
+
+.upPfCashWrap{
+   width:1400px;
+   margin: 0px auto;
+   height:1500px;
+}
+.upPfCashWrap .upPfaside{
+   float:left;
+   width: 300px;
+   height: 1500px;
+}
+.upPfCashWrap .upPfSection{
+   float:left;
+   width: 1100px;
+   height: 1500px;
+}
+
+.upPfSection .upPfTitleWrap{
+   width: 1100px;
+   height: 100px;
+   float: left;
+   border-bottom: 0.8px solid #dedfda;
+}
+
+.upPfTitleWrap .upPfTitle{
+   width: 1000px;
+   margin :50px 0px 50px 50px;
+   height: 80px;
+   margin-top:20px;
+   border: none;
+   resize: none;
+   float:left;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+}
+
+
+
+.upPfTitle:focus{
+   border: none;
+   outline: none;
+}
+.upPfSection .upPfContentWrap{
+   width: 1100px;
+   height: 1200px;
+   float: left;
+   border-top: 0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+}
+
+.upPfContentWrap .upPfContent{
+   width: 1000px;
+   height: 1150px;
+   margin :50px 0px 50px 50px;
+   outline: none;
+   border: none;
+   resize: none;
+   font-family: 'NanumSquareRound';
+   font-size: 1.1em;
+}
+
+.upPfContent:focus{
+   border: none;
+   outline: none;
+}
+
+.upPfSection .pfCheckboxWrap{
+   width:50%;
+   height: 60px;
+   float: left;
+   border-top: 0.8px solid #dedfda;
+   text-align: center;
+}
+
+.pfCheckboxWrap .pfCheckbox{
+   margin-top:25px;
+}
+
+.upPfSection .linkboxWrap{
+   width: 50%;
+   height: 60px;
+   border-top: 0.8px solid #dedfda;
+   text-align: center;
+}
+
+.linkboxWrap .linkbox{
+   margin-top:25px;
+}
+
+.linkbox textarea{
+   height: 15px;
+}
+.upPfSection .btnWrap{
+   width: 1100px;
+   height: 100px;
+   float: left;
+}
+.btnWrap .btnDiv{
+   width: 950px;
+   margin-left:75px;
+   margin-right:75px;
+   height: 100px;
+   float: left;
+}
+
+.btnWrap button{
+   float: right;
+   margin-right: 10px;
+   margin-top: 20px;
+}
+
+
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 50px;
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: gray;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: yellow;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+/*여기서부터 모달박스*/
+.rat {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 360px;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+    border: transparent;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02), 0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035), 0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
+    opacity: 0;
+    animation: show-modal 0.6s forwards;
+}
+ .rat::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+}
+ .rat .rat-content {
+    display: grid;
+    place-items: center;
+}
+ .rat .rat-title {
+    margin: 0;
+    padding: 1rem 0;
+}
+
+ .rat .rat-options {
+    padding: 1rem 0;
+}
+ .rat .rat-options .option {
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border: 1px solid;
+}
+ .rat .rat-options .option::before {
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    background: currentColor;
+    border-radius: inherit;
+}
+ .rat .rat-options .option:hover {
+    filter: brightness(1.75);
+}
+ .rat .rat-options .confirm {
+    margin-right: 3rem;
+    color: #4a89dc;
+}
+ .rat .rat-options .cancel {
+    color: #da4453;
+}
+ @keyframes show-modal {
+    to {
+       opacity: 1;
+   }
+}
+ @keyframes open-description {
+    to {
+       height: 210px;
+   }
+}
+
+.rat-TextWrap .ra_content {
+   width:250px;
+   height: 150px;
+   resize: none;
+}
+
+<!-- 형용쓰 찜 깨짐-->
+.title-row {
+   width: 1400px;
+   height: 200px;
+}
+.p-15 {
+   width: 15%;
+}
+
+.p-50 {
+   width: 40%;
+}
+
+.p-10 {
+   width: 10%
+}
+.ya{
+   padding-top: 30px;
+}
+.myEPageScWrap{
+   width:1400px;
+   margin: 0px auto;
+}
+.myEPageScWrap .myEPageScaside{
+   float:left;
+   width: 300px;
+}
+.myEPageScWrap .myEPageScSection{
+   float:left;
+   width: 1100px;
+   height: 1000px;
+}
+.myEPageScWrap .paging{
+   float:left;
+   width: 1100px;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Sarabun');
+
+/*커뮤니티 보드*/
+.u-title {
+   text-align: left;
+   text-decoration: none;
+}
+
+.u-title a {
+   text-decoration: none;
+   color: black;
+}
+
+.u-name {
+   text-align: center;
+}
+
+.u-date {
+   text-align: center;
+}
+
+.u-bnum {
+   text-align: center;
+}
+
+.data-row>div {
+   display: block;
+   float: left;
+   height: 35px;
+   font-size: 14px;
+   line-height: 2.5;
+   background-color: white;
+   border: 1px 0px solid #bfbfbf;
+   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+   padding: 2px;
+   div-overflow: hidden;
+}
+
+.data-area {
+   margin: 10px 0;
+   height: 400px;
+}
+
+.title-row>div {
+   display: block;
+   float: left;
+   height: 40px;
+   font-size: 14px;
+   line-height: 2.5;
+   text-align: center;
+   background-color: #fff;
+   border: 1px solid black;
+   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+   border-top-width: 1px;
+   border-bottom-style: none;
+   border-left-style: none;
+   border-right-style: none;
+   text-decoration: none;
+}
+
+.paging .pno {
+   background-color: #efefef;
+   margin: 2px;
+   border: 1px solid #6c6c6c;
+   border-radius: 3px;
+   line-height: 1.5;
+   font-size: 15px;
+   height: 20px;
+}
+.paging>a {
+   text-decoration: none;
+}
+
+.paging>a:visited {
+   color: #575757;
+}
+
+.btn-area{
+   margin:0 auto;
+}
+
+.all {
+   width: 1400px;
+   margin: 0px auto;
+   height: 100%;
+}
+
+.ucontent {
+   width: 68%;
+   height: 100%;
+   padding: 0;
+   z-index: 0;
+   margin-left: 25%;
+   padding-top: 50px;
+}
+
+.cowr-btn {
+   display: block;
+   border-radius: 3px;
+   border: none;
+   font-size: 0.9rem;
+   padding: 0.6rem 1em;
+   background: #575757;
+   border-bottom: 1px solid##575757;
+   color: white;
+   margin: 0 0.25rem;
+   text-align: center;
+   float: right;
+   bottom: 0px;
+}
+
+.yt {
+   margin:10px;
+   width: 170px;
+   display: inline-block;
+   float: left;
+}
+
+.yb {
+   display: inline-block;
+   margin: 10px;
+}
+
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl+.tgl-btn
+   {
+   box-sizing: border-box;
+}
+
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection,
+   .tgl *:after::selection, .tgl *:before::selection, .tgl+.tgl-btn::selection
+   {
+   background: none;
+}
+
+.tgl+.tgl-btn {
+   outline: 0;
+   display: block;
+   width: 4em;
+   height: 2em;
+   position: relative;
+   cursor: pointer;
+   user-select: none;
+   float:left;
+   margin: 2px;
+}
+
+.tgl+.tgl-btn:after, .tgl+.tgl-btn:before {
+   position: relative;
+   display: block;
+   content: "";
+   width: 50%;
+   height: 100%;
+}
+
+.tgl+.tgl-btn:after {
+   left: 0;
+}
+
+.tgl+.tgl-btn:before {
+   display: none;
+}
+
+.tgl-flip+.tgl-btn {
+   padding: 2px;
+   transition: all .2s ease;
+   font-family: sans-serif;
+   perspective: 100px;
+}
+
+.tgl-btn{
+   z-index:0;
+   display: inline-block;
+   transition: all .4s ease;
+   width: 100%;
+   text-align: center;
+   position: absolute;
+   line-height: 2em;
+   font-weight: bold;
+   color: #fff;
+   position: absolute;
+   top: 10;
+   backface-visibility: hidden;
+   border-radius: 4px;
+   background: #55595c;
+}
+
+
+.tgl-flip+.tgl-btn:active:before {
+   transform: rotateY(-20deg);
+}
+
+.tgl-flip:checked+.tgl-btn:before {
+   transform: rotateY(180deg);
+}
+
+.tgl-flip:checked+.tgl-btn:active:after {
+   transform: rotateY(20deg);
+}
+#cb5 {
+   display: none;
+   background: white;
+}
+#cb6 {
+   display: none;
+   background: white;
+}
+#cb7 {
+   display: none;
+   background: white;
+}
+#cb8 {
+   display: none;
+   background: white;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+.selected-item {
+  margin: 20px 0;
+  text-align: center;
+}
+.selected-item p {
+  font-size: 13px;
+}
+.selected-item p span {
+  font-weight: bold;
+}
+.dropdown {
+  margin:10;
+  width: 130px;
+  display:inline-block;
+  position: relative;
+  float:right;
+  perspective: 400px;
+}
+.dropdown.active .selLabel:after {
+  content: '\25B2';
+}
+.dropdown.active .dropdown-list li:nth-child(1) {
+  transform: translateY(100%);
+}
+.dropdown.active .dropdown-list li:nth-child(2) {
+  transform: translateY(200%);
+}
+
+.dropdown > span {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  width: 100%;
+  height: 40px;
+  line-height: 42px;
+  color: #fff;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 700;
+  text-align:center;
+  letter-spacing: 2px;
+  background: #55595c;
+  display: block;
+  padding: 0 40px 0 20px;
+  position: relative;
+  z-index: 9999;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: 50% 0%;
+  transition: transform 300ms;
+  -webkit-backface-visibility: hidden;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.dropdown > span:after {
+  content: '\25BC';
+  position: absolute;
+  right: 0px;
+  margin-top: 7px;
+  width: 30px;
+  text-align: center;
+  font-size: 12px;
+  padding: 9px;
+  height: 70%;
+  line-height: 11px;
+  border-left: 1px solid #ddd;
+}
+.dropdown > span:active {
+  transform: rotateX(45deg);
+}
+.dropdown > span:active:after {
+  content: '\25B2';
+}
+.dropdown-list {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.dropdown-list li {
+  display: block;
+  list-style: none;
+  left: 0;
+  opacity: 1;
+  transition: transform 300ms ease;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.dropdown-list li:nth-child(1) {
+  background-color: #1abc9c;
+  z-index: 4;
+  transform: translateY(0);
+}
+.dropdown-list li:nth-child(2) {
+  background-color: #3498db;
+  z-index: 3;
+  transform: translateY(3%);
+}
+
+.dropdown-list li span {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  -webkit-backface-visibility: hidden;
+  -webkit-touch-callout: none;
+  user-select: none;
+  width: 100%;
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: 700;
+  line-height: 40px;
+  padding: 0 30px;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 2px;
+}

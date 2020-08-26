@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.editube.dao.BoardDao">
+	
+	<select id="getUList" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UB_1.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLIST_1.*
+   		 FROM UBLIST_1
+  		 WHERE UBPOSITIONTYPE=#{ubpositiontype} AND UBSTATUS=#{status}
+		) UB_1
+		WHERE UB_1.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	
+	<select id="getTDList" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UB_1.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLIST_1.*
+   		 FROM UBLIST_1
+  		 WHERE UBPOSITIONTYPE=#{ubpositiontype}
+		) UB_1
+		WHERE UB_1.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	<select id="getTList" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UB_1.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLIST_1.*
+   		 FROM UBLIST_1
+  		 WHERE UBPOSITIONTYPE=#{ubpositiontype} AND UBSTATUS=#{status}
+		) UB_1
+		WHERE UB_1.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	
+	<select id="getDList" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UB_2.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLIST_2.*
+   		 FROM UBLIST_2
+  		 WHERE UBPOSITIONTYPE=#{ubpositiontype} AND UBSTATUS=#{status}
+		) UB_2
+		WHERE UB_2.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	
+	<select id="getTLista" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UB_1.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLIST_1.*
+   		 FROM UBLIST_1
+  		 WHERE UBPOSITIONTYPE=#{ubpositiontype} AND UBSTATUS=#{status}
+		) UB_1
+		WHERE UB_1.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	<select id="getTListb" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UB_1.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLIST_1.*
+   		 FROM UBLIST_1
+  		 WHERE UBPOSITIONTYPE=#{ubpositiontype} AND UBSTATUS=#{status}
+		) UB_1
+		WHERE UB_1.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	<select id="getTListasc" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UBSC_T.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLISTSC_T.*
+   		 FROM UBLISTSC_T
+  		 WHERE UBSTATUS=#{status} AND NICKNAME=#{nickname}
+		) UBSC_T
+		WHERE UBSC_T.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	<select id="getTListbsc" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UBSC_T.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLISTSC_T.*
+   		 FROM UBLISTSC_T
+  		 WHERE UBSTATUS=#{status} AND NICKNAME=#{nickname}
+		) UBSC_T
+		WHERE UBSC_T.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	
+	<select id="getTListSc" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UBSC_T.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLISTSC_T.*
+   		 FROM UBLISTSC_T
+  		 WHERE UBSTATUS=#{status} AND NICKNAME=#{nickname}
+		) UBSC_T
+		WHERE UBSC_T.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	
+	<select id="getDListSc" parameterType="HashMap"
+		resultType="com.editube.dto.UBoardDto">
+		<![CDATA[
+		SELECT UBSC_D.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, UBLISTSC_D.*
+   		 FROM UBLISTSC_D
+  		 WHERE UBSTATUS=#{status} AND NICKNAME=#{nickname}
+		) UBSC_D
+		WHERE UBSC_D.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	
+	<update id="viewUpdate" parameterType="Integer">
+		UPDATE UB SET UB_VIEW = UB_VIEW+1
+		WHERE UB_NUM = #{ubnum}
+	</update>
+	
+	<select id="getUDTBoardCount" parameterType="HashMap" resultType="Integer">
+      SELECT COUNT(*) FROM UBLIST_1 WHERE UBPOSITIONTYPE=#{ubpositiontype}
+   </select>
+	<select id="getUTBoardCount" parameterType="HashMap" resultType="Integer">
+      SELECT COUNT(*) FROM UBLIST_1 WHERE UBPOSITIONTYPE=#{ubpositiontype} AND UBSTATUS=#{status}
+   </select>
+   
+	<select id="getUDBoardCount" parameterType="HashMap" resultType="Integer">
+		SELECT COUNT(*) FROM UBLIST_2 WHERE UBPOSITIONTYPE=#{ubpositiontype} AND UBSTATUS=#{status}
+	</select>
+	<select id="getUTBoardCountSc" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM UBLISTSC_T WHERE UBSTATUS=#{status}
+	</select>
+	<select id="getUDBoardCountSc" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM UBLISTSC_D WHERE UBSTATUS=#{status}
+	</select>
+		
+	<select id="getUContent" parameterType="Integer"
+		resultType="com.editube.dto.UBoardDto">
+		SELECT * FROM UBLIST_1
+		WHERE UBNUM = #{ubnum}
+	</select>
+	<select id="getUTContent" parameterType="Integer"
+		resultType="com.editube.dto.UBoardDto">
+		SELECT * FROM UBLIST_1
+		WHERE UBNUM = #{ubnum}
+	</select>
+	<select id="getUDContent" parameterType="Integer"
+		resultType="com.editube.dto.UBoardDto">
+		SELECT * FROM UBLIST_2
+		WHERE UBNUM = #{ubnum}
+	</select>
+<!-- 	<select id="getUTContentSc" parameterType="HashMap" -->
+<!-- 		resultType="com.editube.dto.UBoardDto"> -->
+<!-- 		SELECT * FROM UBLISTSC_T -->
+<!-- 		WHERE UBNUM = #{ubnum} AND NICKNAME=#{nickname} -->
+<!-- 	</select> -->
+	<select id="getUTContentSc" parameterType="Integer"
+		resultType="com.editube.dto.UBoardDto">
+		SELECT * FROM UBLISTSC_T
+		WHERE UBNUM = #{ubnum}
+	</select>
+	<select id="getUDContentSc" parameterType="Integer"
+		resultType="com.editube.dto.UBoardDto">
+		SELECT * FROM UBLISTSC_D
+		WHERE UBNUM = #{ubnum}
+	</select>
+
+
+	<insert id="uboardInsert" 
+		parameterType="com.editube.dto.UBoardDto"
+		useGeneratedKeys="true"
+		keyProperty="ubnum">
+		<selectKey keyProperty="ubnum"
+			resultType="int" order="BEFORE">
+			SELECT UBOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO UB
+		VALUES(${ubnum},#{ubnickname},#{ubcontent},#{ubtitle},DEFAULT,#{ubdeadline},#{ubstatus},#{ubpositiontype},#{ubcost},DEFAULT)
+	</insert>
+	
+	<update id="boardUpdate" 
+		parameterType="com.editube.dto.UBoardDto">
+		UPDATE UB SET 
+			UB_CONTENT=#{ubcontent},
+			UB_TITLE=#{ubtitle},
+			UB_DEADLINE=#{ubdeadline},
+			UB_STATUS=#{ubstatus},
+			UB_POSITIONTYPE=#{ubpositiontype},
+			UB_COST=#{ubcost}
+ 		WHERE UB_NUM=#{ubnum}
+	</update>
+	
+	<delete id="boardUDelete" parameterType="Integer">
+		DELETE FROM UB WHERE
+		UB_NUM=#{ubnum}
+	</delete>
+	
+	<insert id="uscript" 
+		parameterType="com.editube.dto.UScriptDto">
+		INSERT INTO SC
+		VALUES(SCRIPT_SEQ.NEXTVAL,null,#{sc_ubnum},#{sc_mnickname},#{sc_usertype})
+	</insert>
+	
+	<delete id="uscriptdel" parameterType="Integer">
+		DELETE FROM SC WHERE
+		SC_UBNUM=#{sc_ubnum}
+	</delete>
+	
+	<select id="uscriptlist" parameterType="Integer"
+		resultType="com.editube.dto.UScriptDto">
+		SELECT * FROM SC
+		WHERE SC_UBNUM=#{ubnum}
+	</select>
+	
+	<insert id="pscript" 
+      parameterType="com.editube.dto.UScriptDto">
+      INSERT INTO SC
+      VALUES(SCRIPT_SEQ.NEXTVAL,#{sc_pnum},null,#{sc_mnickname},#{sc_usertype})
+   </insert>
+   
+   <delete id="pscriptdel" parameterType="Integer">
+      DELETE FROM SC WHERE
+      SC_PNUM=#{sc_pnum}
+   </delete>
+	
+	<select id="pscriptlist" parameterType="Integer"
+      resultType="com.editube.dto.UScriptDto">
+      SELECT * FROM SC
+      WHERE SC_PNUM=#{pnum}
+   </select>
+	
+	<!-- 혜명메소드 -->
+	<select id="getCList" parameterType="HashMap" resultType="com.editube.dto.ChatbotDto">
+		SELECT * FROM CHATBOT WHERE (CH_MNICKNAME=#{nickname} AND CH_TARGETNICKNAME=#{targetnickname})
+		OR (CH_MNICKNAME=#{targetnickname} AND CH_TARGETNICKNAME=#{nickname})
+		ORDER BY ch_date
+	</select>
+	
+	<insert id="chatInsert" parameterType="com.editube.dto.ChatbotDto">
+		INSERT INTO CHATBOT VALUES (CHATBOT_SEQ.nextval,#{ch_mnickname},#{ch_content},#{ch_targetnickname},SYSDATE)
+	</insert>
+	
+	<select id="chkReq" parameterType="Integer" resultType="com.editube.dto.RequestDto">
+      SELECT * FROM REQUEST WHERE rq_bnum = #{ubnum} and rq_status between 1 and 6
+    </select>
+
+	
+	<select id="chkEReq" parameterType="String" resultType="com.editube.dto.RequestDto">
+      SELECT * FROM REQUEST WHERE RQ_TYPE = 1 AND RQ_TARGETNICKNAME = #{nick} and rq_status between 1 and 6
+    </select>
+
+	
+	<select id="getLastNum" resultType="int">
+		SELECT CHATBOT_SEQ.CURRVAL FROM DUAL
+	</select>
+	
+	<!-- 편집자 관련 -->
+	<select id="getPList" parameterType="HashMap"
+		resultType="com.editube.dto.EBoardDto">
+		<![CDATA[
+		SELECT PL_1.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, PLIST_1.*
+   		 FROM PLIST_1
+  		 WHERE PSTATUS=#{pstatus}
+		) PL_1
+		WHERE PL_1.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		ORDER BY PREDATE DESC, PNUM ASC
+		]]>
+	</select>
+	
+	<select id="sortView" parameterType="HashMap"
+		resultType="com.editube.dto.EBoardDto">
+		<![CDATA[
+		SELECT PL_1.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, PLIST_1.*
+   		 FROM PLIST_1
+  		 WHERE PSTATUS=#{pstatus}
+		) PL_1
+		WHERE PL_1.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		ORDER BY PVIEW DESC, PNUM ASC
+		]]>
+	</select>
+	
+	<select id="getPContents" parameterType="Integer"
+		resultType="com.editube.dto.EBoardDto">
+		SELECT * FROM PLIST_1
+		WHERE PNUM = #{pnum}
+	</select>
+	
+	<update id="viewPUpdate" parameterType="Integer">
+		UPDATE P SET P_VIEW = P_VIEW+1
+		WHERE P_NUM = #{pnum}
+	</update>
+
+	<select id="getQna" parameterType="com.editube.dto.QnaDto"
+		resultType="com.editube.dto.QnaDto">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROW_NUMBER() OVER(PARTITION BY QNA.q_pnum ORDER BY QNA.q_date) row_num
+		     , QNA.*
+		  FROM QNA
+		  WHERE Q_PNUM= #{q_pnum})
+		  WHERE ROW_NUM BETWEEN ${qnaNum}*5 - 4  AND ${qnaNum}*5
+		]]>
+	</select>
+	
+	<select id="getRate" parameterType="HashMap"
+      resultType="com.editube.dto.RatingDto">
+      <![CDATA[
+      SELECT * FROM (
+      SELECT ROW_NUMBER() OVER(PARTITION BY RA.RA_NICKNAME ORDER by RA.RA_NUM) row_num
+           , RA.*
+        FROM RA
+        WHERE RA_NICKNAME= #{nick})
+        WHERE ROW_NUM BETWEEN ${rateNum}*5 - 4  AND ${rateNum}*5
+      ]]>
+   </select>
+	<update id="portUpdate" 
+		parameterType="com.editube.dto.EBoardDto">
+		UPDATE PORTFOLIO SET 
+			P_TITLE=#{ptitle}, 
+			P_CONTENT=#{pcontent}, 
+			P_COST=#{pcost},
+			P_LINK=#{plink},
+			P_REDATE=SYSDATE,
+			P_STATUS=#{pstatus}
+ 		WHERE P_MNICKNAME=#{pnickname}
+	</update>
+	<select id="getPort" parameterType="String"
+		resultType="com.editube.dto.EBoardDto">
+		SELECT * FROM PLIST_1
+		WHERE PNICKNAME=#{nick}
+	</select>
+	<select id="getPcontent" parameterType="Integer"
+		resultType="com.editube.dto.EBoardDto">
+		SELECT * FROM PLIST_1
+		WHERE PNICKNAME = #{nick}
+	</select>
+	<update id="dateUp" parameterType="com.editube.dto.EBoardDto">
+		UPDATE PORTFOLIO SET 
+			P_REDATE=SYSDATE
+ 		WHERE P_MNICKNAME=#{pnickname}
+	</update>
+	<insert id="portInsert" 
+		parameterType="com.editube.dto.EBoardDto"
+		useGeneratedKeys="true"
+		keyProperty="pnum">
+		<selectKey keyProperty="pnum"
+			resultType="int" order="BEFORE">
+			SELECT PORTFOLIO_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO PORTFOLIO
+		VALUES(${pnum},#{pnickname},#{ptitle},#{pcontent},#{pcost},#{plink},#{pstatus},DEFAULT,DEFAULT,0)
+	</insert>
+	<update id="reDate" parameterType="com.editube.dto.EBoardDto">
+		UPDATE PORTFOLIO SET 
+			P_REDATE=SYSDATE
+ 		WHERE P_NUM=#{pnum}
+	</update>
+	
+	<select id="getPTContentSc" parameterType="Integer"
+      resultType="com.editube.dto.EBoardDto">
+      SELECT * FROM PLISTSC
+      WHERE PNUM = #{pnum}
+   </select>
+   
+
+	   
+	<select id="getPListasc" parameterType="HashMap"
+      resultType="com.editube.dto.EBoardDto">
+      	<![CDATA[
+		SELECT PLSC.* FROM
+		(
+   		 SELECT ROWNUM AS RONUM, PLISTSC.*
+   		 FROM PLISTSC
+  		 WHERE NICKNAME=#{nickname}
+		) PLSC
+		WHERE PLSC.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+   </select>
+   
+   
+   <select id="getPScBoardCount" resultType="Integer">
+      SELECT COUNT(*) FROM PLISTSC WHERE PNICKNAME=#{nickname}
+   </select>
+	
+	<select id="getPBoardCount" resultType="Integer">
+      SELECT COUNT(*) FROM PLIST_1 WHERE PSTATUS=#{pstatus}
+   </select>
+   
+ 	<insert id="qInsert" 
+		parameterType="com.editube.dto.QnaDto">
+		INSERT INTO QNA
+		VALUES(QNA_SEQ.NEXTVAL,#{q_pnum},#{q_nickname},DEFAULT,#{q_content})
+	</insert>
+</mapper>
+
+
+
+
+
+

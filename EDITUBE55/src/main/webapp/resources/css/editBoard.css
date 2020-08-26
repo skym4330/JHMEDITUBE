@@ -1,0 +1,222 @@
+@charset "UTF-8";
+* {
+   box-sizing: border-box;
+   margin: 0px;
+   padding: 0px;
+}
+
+html {
+   height: 100%;
+}
+
+.all {
+   width: 1400px;
+   margin: 0px auto;
+   height: 100%;
+   z-index: -10;
+}
+.econtent{
+   width: 68%;
+    height: 100%;
+    padding: 0;
+    margin-left: 25%;
+    padding-top: 50px;
+    z-index: -10;
+}
+.yt {
+   margin:10px;
+   display: inline-block;
+   float: left;
+}
+
+.dropdown {
+  margin:10;
+  width: 130px;
+  display:inline-block;
+  position: relative;
+  float:right;
+  perspective: 400px;
+}
+.dropdown.active .selLabel:after {
+  content: '\25B2';
+}
+.dropdown.active .dropdown-list li:nth-child(1) {
+  transform: translateY(100%);
+}
+.dropdown.active .dropdown-list li:nth-child(2) {
+  transform: translateY(200%);
+}
+.dropdown.active .dropdown-list li:nth-child(3) {
+  transform: translateY(300%);
+}
+.dropdown.active .dropdown-list li:nth-child(4) {
+  transform: translateY(400%);
+}
+.dropdown > span {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  width: 100%;
+  height: 40px;
+  line-height: 42px;
+  color: #fff;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 700;
+  text-align:center;
+  letter-spacing: 2px;
+  background: #55595c;
+  display: block;
+  padding: 0 40px 0 20px;
+  position: relative;
+  z-index: 9999;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: 50% 0%;
+  transition: transform 300ms;
+  -webkit-backface-visibility: hidden;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.dropdown > span:after {
+  content: '\25BC';
+  position: absolute;
+  right: 0px;
+  margin-top: 7px;
+  width: 30px;
+  text-align: center;
+  font-size: 12px;
+  padding: 9px;
+  height: 70%;
+  line-height: 11px;
+  border-left: 1px solid #ddd;
+}
+.dropdown > span:active {
+  transform: rotateX(45deg);
+}
+.dropdown > span:active:after {
+  content: '\25B2';
+}
+.dropdown-list {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.dropdown-list li {
+  display: block;
+  list-style: none;
+  left: 0;
+  opacity: 1;
+  transition: transform 300ms ease;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.dropdown-list li:nth-child(1) {
+  background-color: #1abc9c;
+  z-index: 4;
+  transform: translateY(0);
+}
+.dropdown-list li:nth-child(2) {
+  background-color: #3498db;
+  z-index: 3;
+  transform: translateY(3%);
+}
+.dropdown-list li:nth-child(3) {
+  background-color: #1abc9c;
+  z-index: 4;
+  transform: translateY(6%);
+}
+.dropdown-list li:nth-child(4) {
+  background-color: #3498db;
+  z-index: 3;
+  transform: translateY(9%);
+}
+.dropdown-list li span {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  -webkit-backface-visibility: hidden;
+  -webkit-touch-callout: none;
+  user-select: none;
+  width: 100%;
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: 700;
+  line-height: 40px;
+  padding: 0 30px;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 2px;
+  z-index: 998;
+}
+
+
+.card {
+   display: inline-block;
+   width: 250px;
+   height: 400px;
+   max-width: 20rem;
+   margin:15px 30px;
+   font-size: 1rem;
+   text-decoration: none;
+   overflow: hidden;
+   box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+   transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+   float: left;
+   z-index: 0;
+}
+.card > a:hover {
+   text-decoration: none;
+   color: #535353;
+}
+
+.card-image {
+   display: block;
+   background: #fff center center no-repeat;
+   background-size: cover;
+   vertical-align: top;
+   width: 200px;
+   table-layout: fixed;
+   height: 200px;
+   margin: 0 auto;
+   margin-top:10px;
+}
+
+.card-image > img {
+   display: block;
+   width: 100%;
+   opacity: 0; /* visually hide the img element */
+}
+.card-description {
+   font-family: 'NanumSquareRound'; 
+   display: block;
+   padding: 1em 0.5em;
+   color: #535353;
+   text-decoration: none;
+}
+
+.card-description > h2 {
+   margin: 0 0 0.5em;
+}
+
+.card-description > p {
+   margin: 0;
+}
+.card:hover {
+   transform: translateY(-0.5rem) scale(1.0125);
+   box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+.card-description:hover {
+   text-decoration: none;
+   color: #535353;
+}
+
+.paging .pno {
+    background-color: #efefef;
+    margin: 2px;
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    line-height: 1.5;
+    font-size: 15px;
+    height: 20px;
+}
+
+

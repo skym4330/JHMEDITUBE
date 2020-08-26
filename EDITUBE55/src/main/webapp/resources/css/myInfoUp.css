@@ -1,0 +1,596 @@
+@charset "UTF-8"; /* 로그인 관련 */
+* {
+   box-sizing: border-box;
+   margin: 0px;
+   padding: 0px;
+}
+
+html {
+   background-image: url(../images/97b06ee615b1c6cf7dd31751aa542d05.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.wrap {
+   margin-top: 5%;
+}
+
+/* Container */
+.container {
+   max-width: 460px;
+   margin: 0 auto;
+}
+
+.container.active .card:first-child {
+   background: #f2f2f2;
+   margin: 0 15px;
+}
+
+.container.active .card:nth-child(2) {
+   background: #fafafa;
+   margin: 0 10px;
+}
+
+.container.active .card.alt .title, .container.active .card.alt .input-container,
+   .container.active .card.alt .button-container {
+   left: 0;
+   opacity: 1;
+   visibility: visible;
+   transition: 0.3s ease;
+}
+
+.container.active .card.alt .title {
+   transition-delay: 0.3s;
+}
+
+.container.active .card.alt .input-container {
+   transition-delay: 0.4s;
+}
+
+.container.active .card.alt .input-container:nth-child(2) {
+   transition-delay: 0.5s;
+}
+
+.container.active .card.alt .input-container:nth-child(3) {
+   transition-delay: 0.6s;
+}
+
+.container.active .card.alt .button-container {
+   transition-delay: 0.7s;
+}
+/* Card */
+.card {
+   margin-top: 10px;
+   margin-bottom: 10px;
+   background: #fff;
+   border-radius: 5px;
+   box-sizing: border-box;
+   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+   transition: 0.3s ease;
+}
+
+.card img {
+   cursor: pointer;
+}
+
+.card:first-child {
+   background: #fafafa;
+   height: 0px;
+   border-radius: 5px 5px 0 0;
+   margin: 0 10px;
+   padding: 0;
+}
+
+.card:last-child {
+   padding-bottom: 20px;
+}
+
+.card .title {
+   position: relative;
+   z-index: 1;
+   border-left: 5px solid #ed2553;
+   margin: 0 0 15px;
+   padding: 10px 0 10px 50px;
+   color: #ed2553;
+   font-size: 32px;
+   font-weight: 600;
+   text-transform: uppercase;
+}
+
+.card .title img {
+   margin-right: 20px;
+   width: 25%;
+}
+
+.card .title p {
+   color: black;
+   font-size: 15px;
+   margin-top: 10px;
+}
+
+.card .input-container {
+   position: relative;
+   margin: 0 60px 20px;
+}
+
+.card .input-container input {
+   outline: none;
+   z-index: 1;
+   position: relative;
+   background: none;
+   height: 60px;
+   border: 0;
+   color: #212121;
+   font-size: 15px;
+   font-weight: 400;
+}
+
+.card .input-container input:focus ~ label {
+   color: #9d9d9d;
+   transform: translate(-12%, -50%) scale(0.75);
+}
+
+.card .input-container input:focus ~ .bar:before, .card .input-container input:focus 
+   ~ .bar:after {
+   width: 50%;
+}
+
+.card .input-container input:valid ~ label {
+   color: #9d9d9d;
+   transform: translate(-12%, -50%) scale(0.75);
+}
+
+.card .input-container label {
+   position: absolute;
+   top: 0;
+   left: 0;
+   color: #757575;
+   font-size: 24px;
+   font-weight: 300;
+   line-height: 60px;
+}
+
+.card .input-container .bar {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   background: #757575;
+   width: 100%;
+   height: 1px;
+}
+
+.card .input-container .bar:before, .card .input-container .bar:after {
+   content: '';
+   position: absolute;
+   background: #ed2553;
+   width: 0;
+   height: 2px;
+   transition: 0.2s ease;
+}
+
+.card .input-container .bar:before {
+   left: 50%;
+}
+
+.card .input-container .bar:after {
+   right: 50%;
+}
+
+.card .button-container {
+   text-align: center;
+}
+
+.card .button-container a {
+   outline: 0;
+   cursor: pointer;
+   position: relative;
+   display: inline-block;
+   background: 0;
+   width: 40px;
+   height: 40px;
+   border: 2px solid #e3e3e3;
+   padding: 20px 0;
+   font-size: 12px;
+   font-weight: 600;
+   line-height: 1px;
+   text-transform: uppercase;
+   overflow: hidden;
+   transition: 0.3s ease;
+}
+
+.card . .card .button-container button span {
+   position: relative;
+   z-index: 1;
+   color: #f35b5b;
+   transition: 0.3s ease;
+}
+
+.card .button-container a:before {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   display: block;
+   background: #ed2553;
+   width: 30px;
+   height: 30px;
+   border-radius: 100%;
+   margin: -15px 0 0 -15px;
+   opacity: 0;
+   transition: 0.3s ease;
+}
+
+.card .button-container a:hover, .card .button-container a:focus {
+   border-color: #ed2553;
+}
+
+.card .button-container a:hover span, .card .button-container a:focus span
+   {
+   color: #ed2553;
+}
+
+.card .button-container a:active span, .card .button-container a:focus span
+   {
+   color: #fff;
+}
+
+.card .button-container a:active:before, .card .button-container a:focus:before
+   {
+   opacity: 1;
+}
+
+.card .footer a:hover, .card .footer a:active, .card .footer a:focus {
+   color: #ed2553;
+}
+
+.card .footer {
+   margin: 40px auto;
+   color: #000000;
+   font-size: 24px;
+   font-weight: 300;
+   text-align: center;
+}
+
+.card .footer a {
+   color: inherit;
+   text-decoration: none;
+   transition: 0.3s ease;
+}
+
+.card .footer a:hover {
+   color: #bababa;
+}
+
+.card.alt .title, .card.alt .input-container, .card.alt .button-container
+   {
+   left: 100px;
+   opacity: 0;
+   visibility: hidden;
+}
+
+#right-button {
+   width: 140px;
+   float: right;
+   position: relative;
+   z-index: 5;
+   margin-right: 45px;
+   margin-top: 20px;
+}
+
+#right-btn {
+   width: 118px;
+   float: right;
+   position: relative;
+   z-index: 5;
+   margin-right: 1px;
+   margin-top: 10px;
+}
+
+.right-button .button-container #nick-check {
+   display: inline-block;
+   border-radius: 3px;
+   border: none;
+   font-size: 0.9rem;
+   padding: 0.6rem 1em;
+   background: #55595c;
+   border-bottom: 1px solid #55595c;
+   color: white;
+   margin: 0 0.25rem;
+   text-align: center;
+   right: 20%;
+}
+
+.logo-center {
+   padding-top: 21px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   cursor: pointer;
+}
+
+.card .button-container #Storage, .btn-file, #filedel {
+   outline: 0;
+   cursor: pointer;
+   position: relative;
+   display: inline-block;
+   background: 0;
+   width: 40px;
+   height: 40px;
+   border: 2px solid #e3e3e3;
+   padding: 20px 0;
+   font-size: 12px;
+   font-weight: 600;
+   line-height: 1px;
+   text-transform: uppercase;
+   overflow: hidden;
+   transition: 0.3s ease;
+}
+
+.card .button-container #Storage:before {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   display: block;
+   background: #ed2553;
+   width: 30px;
+   height: 30px;
+   border-radius: 100%;
+   margin: -15px 0 0 -15px;
+   opacity: 0;
+   transition: 0.3s ease;
+}
+
+.card .button-container #Storage:hover, .card .button-container #Storage:focus
+   {
+   border-color: #ed2553;
+}
+
+.card .button-container #Storage:hover span, .card .button-container #Storage:focus span
+   {
+   color: #ed2553;
+}
+
+.card .button-container #Storage:active span, .card .button-container #Storage:focus span
+   {
+   color: #fff;
+}
+
+.card .button-container #Storage:active:before, .card .button-container #Storage:focus:before
+   {
+   opacity: 1;
+}
+
+.card .button-container #filedel:before {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   display: block;
+   background: #ed2553;
+   width: 30px;
+   height: 30px;
+   border-radius: 100%;
+   margin: -15px 0 0 -15px;
+   opacity: 0;
+   transition: 0.3s ease;
+}
+
+.card .button-container #filedel:hover, .card .button-container #filedel:focus
+   {
+   border-color: #ed2553;
+}
+
+.card .button-container #filedel:hover span, .card .button-container #filedel:focus span
+   {
+   color: #ed2553;
+}
+
+.card .button-container #filedel:active span, .card .button-container #filedel:focus span
+   {
+   color: #fff;
+}
+
+.card .button-container #filedel:active:before, .card .button-container #filedel:focus:before
+   {
+   opacity: 1;
+}
+
+.btn-file {
+   position: relative;
+   overflow: hidden;
+}
+
+.btn-file input[type=file] {
+   outline: 0;
+   cursor: pointer;
+   position: relative;
+   display: inline-block;
+   background: 0;
+   width: 40px;
+   height: 40px;
+   border: 2px solid #e3e3e3;
+   padding: 20px 0;
+   font-size: 12px;
+   font-weight: 600;
+   line-height: 1px;
+   text-transform: uppercase;
+   overflow: hidden;
+   transition: 0.3s ease;
+}
+
+.card .button-container .btn-file:before{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   display: block;
+   background: #ed2553;
+   width: 30px;
+   height: 30px;
+   border-radius: 100%;
+   margin: -15px 0 0 -15px;
+   opacity: 0;
+   transition: 0.3s ease;
+}
+
+.card .button-container .btn-file:hover, .card .button-container .btn-file:focus
+   {
+   border-color: #ed2553;
+}
+
+.card .button-container .btn-file:hover span, .card .button-container .btn-file:focus span
+   {
+   color: #ed2553;
+}
+
+.card .button-container .btn-file:active span, .card .button-container .btn-file:focus span
+   {
+   color: #fff;
+}
+
+.card .button-container .btn-file:active:before, .card .button-container .btn-file:focus:before
+   {
+   opacity: 1;
+}
+
+
+.pop-layer .pop-container {
+   padding: 20px 25px;
+}
+
+.pop-layer p.ctxt {
+   color: #666;
+   line-height: 25px;
+}
+
+.pop-layer .btn-r {
+   width: 100%;
+   margin: 10px 0 20px;
+   padding-top: 10px;
+   border-top: 1px solid #DDD;
+   text-align: right;
+}
+
+.pop-layer {
+   display: none;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 560px;
+   height: auto;
+   background-color: #fff;
+   border: 5px solid #3571B5;
+   z-index: 10;
+}
+
+.dim-layer {
+   display: none;
+   position: fixed;
+   _position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 100;
+}
+
+.dim-layer .dimBg {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: #000;
+   opacity: .5;
+   filter: alpha(opacity = 50);
+}
+
+.dim-layer .pop-layer {
+   display: block;
+}
+
+.user-profile {
+   width: 350px;
+   height: 280px;
+   display: block;
+   margin: 0 auto;
+   border: 3px solid gold;
+   border-radius: 7px;
+   -moz-border-radius: 7px;
+   -khtml-border-radius: 7px;
+   -webkit-border-radius: 7px;
+   margin-bottom: 15px;
+   margin-top: 15px;
+}
+
+.user-profile img {
+   width: 350px;
+   height: 280px;
+}
+
+.title {
+   position: relative;
+   z-index: 1;
+   border-left: 5px solid #ed2553;
+   margin: 0 0 15px;
+   padding: 10px 0 10px 50px;
+   color: #ed2553;
+   font-size: 32px;
+   font-weight: 600;
+   text-transform: uppercase;
+}
+
+.agree ul {
+   margin-top: 10px;
+   list-style: none;
+}
+
+.agree ul li {
+   margin-bottom: 15px;
+}
+
+.agree ul li:after {
+   display: block;
+   clear: both;
+   content: "";
+}
+
+.agree ul li input[type="checkbox"] {
+   display: none;
+}
+
+.agree ul li input[type="checkbox"]+label {
+   width: 17px;
+   height: 17px;
+   background: #139fdd;
+   cursor: pointer;
+   border-radius: 3px;
+   float: right;
+}
+
+.agree ul li input[type="checkbox"]:checked+label {
+   background-image: url("../images/checka.PNG");
+   background-repeat: no-repeat;
+   background-size: 17px 17px;
+   background-position: center;
+   float: right;
+}
+
+.agree ul li input[type="checkbox"]+label span {
+   position: absolute;
+   left: 24px;
+   display: block;
+}
+
+.field textarea {
+   width: 500px;
+   height: 100px;
+   padding: 0.5rem;
+   font-size: 1rem;
+   border: 1px solid #D9D9D9;
+   border-radius: 3px;
+   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+   resize: none;
+   margin-bottom: 20px;
+}
+
+.s_title {
+   font-size: 2rem;
+}

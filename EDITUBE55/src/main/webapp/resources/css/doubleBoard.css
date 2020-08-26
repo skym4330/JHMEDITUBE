@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+body{
+  background: #FFF;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#wrap{
+  width:68%;
+  height:100%;
+  padding:0;
+  z-index:0;
+  margin-left:25%;
+  padding-top:50px;
+}
+#accordian{
+  width:1100px;
+  height: 1000px;
+}
+
+#accordian .step{
+  margin-top: 10px;
+  width:88%;
+  height:55px;
+  background:#ffffff;
+  color:#000000;
+  padding-left:1%;
+  padding-top:5px;
+  border-bottom:3px solid #d9d9d9;
+  border-radius:2px;
+  float:left;
+}
+#accordian .title{
+  float:left;
+  width:80%;
+  height:50px;
+  margin-left:1%;
+  font-size:1em;
+  font-weight:300;
+}
+#accordian .title h1{
+  font-size:2em;
+  font-weight:400;
+  margin-top:10px;
+
+}
+#accordian .modify{
+  float:right;
+  width:40px;
+  height:40px;
+  color:#80c0ff;
+  background:#FFF;
+  text-align:center;
+  font-size:3em;
+  border-radius:50%;
+  margin-top:5px;
+  margin-right:10px;
+  cursor:pointer;
+}
+#accordian .modify i{
+  margin-top:-3px;
+  margin-left: -1px;
+  display:block;
+  
+}
+#accordian .content {
+    padding: 2em 2em;
+    width: 100%;
+    margin: 0 auto;
+    background: #FFF;
+    height: auto;
+    display: block;
+    float: left;
+}
+.double-card {
+   display: inline-block;
+   max-width: 20rem;
+   font-size: 1rem;
+   text-decoration: none;
+   overflow: hidden;
+   box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+   transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+   float: left;
+   margin: 10px;
+}
+
+.double-card-image {
+   display: block;
+   background: #fff center center no-repeat;
+   background-size: cover;
+   vertical-align: top;
+   max-width: 100%;
+   table-layout: fixed;
+   height: auto;
+}
+
+.double-card-image > img {
+   display: block;
+   width: 100%;
+   opacity: 0; /* visually hide the img element */
+}
+.double-card-description {
+   
+   font-family: 'NanumSquareRound'; 
+   display: block;
+   padding: 1em 0.5em;
+   color: #535353;
+   text-decoration: none;
+}
+
+.double-card-description > h2 {
+   margin: 0 0 0.5em;
+}
+
+.double-card-description > p {
+   margin: 0;
+}
+.double-card:hover {
+   transform: translateY(-0.5rem) scale(1.0125);
+   box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+.double-card > a:hover {
+   text-decoration: none;
+   color: #535353;
+}
+.double-all {
+   width: 1400px;
+   margin:0px auto;
+   height:100%
+}

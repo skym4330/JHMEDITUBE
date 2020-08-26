@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace= "com.editube.dao.CBoardDao">
+	<select id="getCList" parameterType="HashMap" resultType="com.editube.dto.CBoardDto">
+		<![CDATA[			  
+		  SELECT CB_1.* FROM
+(
+    SELECT ROWNUM AS RONUM, CBLIST_1.*
+    FROM CBLIST_1
+    WHERE CBSTATUS=#{cbstatus}
+) CB_1
+WHERE CB_1.RONUM BETWEEN ${pageNum}*${cnt} - (${cnt}-1) AND ${pageNum}*${cnt} 
+		]]>
+	</select>
+	<select id="getCBoardCount" resultType="Integer">
+		SELECT COUNT(*) FROM
+		CBLIST_1 WHERE CBSTATUS=#{cbstatus}
+	</select>
+	<select id="getCContent" parameterType="Integer" 
+	resultType="com.editube.dto.CBoardDto">
+	SELECT*FROM CBLIST_1
+	WHERE CBNUM=#{cbnum}
+	</select>
+	
+	<insert id="cBoardInsert" parameterType="com.editube.dto.CBoardDto" 
+	useGeneratedKeys="true" keyProperty="cbnum">
+	<selectKey keyProperty="cbnum" resultType="Integer"
+	order="BEFORE">
+	SELECT CBOARD_SEQ.NEXTVAL FROM DUAL
+	</selectKey>
+	INSERT INTO CB
+	VALUES(${cbnum},#{cbnickname},#{cbcontent},#{cbtitle},#{cbstatus},DEFAULT)
+	</insert>
+	<select id="getReplyList" parameterType="Integer" resultType="com.editube.dto.CReplyDto">
+	SELECT*FROM RLIST
+	WHERE R_CBNUM=#{cbnum}
+	</select>
+<insert id="ReplyInsert" parameterType="com.editube.dto.CReplyDto">
+	INSERT INTO R
+	VALUES(REPLY_SEQ.NEXTVAL,#{r_cbnum},#{r_content},#{r_nickname}, DEFAULT)
+	</insert>
+	<delete id="ReplyDelete" parameterType="com.editube.dto.CReplyDto">
+	DELETE FROM R WHERE
+    R_NUM=#{r_num}
+	</delete>
+	<delete id="cReplyDelete" parameterType="Integer">
+	DELETE FROM R WHERE
+    R_CBNUM=#{cbnum}
+	</delete>
+	<delete id="cBoardDelete" parameterType="Integer">
+	DELETE FROM CB WHERE
+    CB_NUM=#{cbnum}
+	</delete>
+	<update id="cBoardUpdate" parameterType="com.editube.dto.CBoardDto">
+		UPDATE CB SET 
+		CB_TITLE=#{cbtitle},
+		CB_CONTENT=#{cbcontent},
+		CB_DATE=sysdate
+		WHERE CB_NUM=#{cbnum} 
+	</update>
+</mapper>

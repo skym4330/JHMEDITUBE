@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.1.xsd
+		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!-- MultipartResolver : 멀티파티 데이터 처리용 객체 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding"
+			value="UTF-8"/>
+		<beans:property name="maxUploadSize"
+			value="10000000"/><!-- byte 단위 -->
+		<beans:property name="maxInMemorySize"
+			value="10000000"/>
+	</beans:bean>
+	
+		<!-- 웹소켓부분 ㅋㅋ -->
+    <websocket:handlers>
+        <websocket:mapping handler="echoHandler" path="/echo" />
+        <websocket:handshake-interceptors>
+            <beans:bean
+                class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
+        </websocket:handshake-interceptors>
+    </websocket:handlers>
+	
+	<beans:bean id="echoHandler" class="com.editube.util.EchoHandler"></beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<!-- 인터셉터가 적용될 전체 범위 : mapping -->
+			<mapping path="/*"/>
+			<!-- 가로채기에서 제외할 uri를 지정 -->
+			<exclude-mapping path="/"/>
+			<exclude-mapping path="/loginFrm"/>
+			<exclude-mapping path="/signPageFrm"/>
+			<exclude-mapping path="/access"/>
+			<exclude-mapping path="/memInsert"/>
+			<exclude-mapping path="/idCheck"/>
+			<exclude-mapping path="/nickCheck"/>
+			<exclude-mapping path="/findIdFrm"/>
+			<exclude-mapping path="/findIdMatch"/>
+			<exclude-mapping path="/comIdFrm"/>
+			<exclude-mapping path="/findPwFrm"/>
+			<exclude-mapping path="/findPwMatch"/>
+			<exclude-mapping path="/comPwFrm"/>
+			<exclude-mapping path="/rePwFrm"/>
+			<exclude-mapping path="/rePw"/>
+			<exclude-mapping path="/myInfo"/>
+			<exclude-mapping path="/myInfoUp"/>
+			<exclude-mapping path="/myUPageSc"/>
+			<exclude-mapping path="/doubleBoard"/>
+			<exclude-mapping path="/youtuberBoard"/>
+			<exclude-mapping path="/commuBoard"/>
+			<exclude-mapping path="/editBoard"/>
+			<exclude-mapping path="/editContent"/>
+			<exclude-mapping path="/commuContent"/>
+			<exclude-mapping path="/writeCommuFrm"/>
+			<exclude-mapping path="/writecom"/>
+			<exclude-mapping path="/commuNav"/>
+			<exclude-mapping path="/myEPage"/>
+			<exclude-mapping path="/myEPageCash"/>
+			<exclude-mapping path="/myEPagePf"/>
+			<exclude-mapping path="/myEPageReqM"/>
+			<exclude-mapping path="/myEPageSc"/>
+			<exclude-mapping path="/signWelFrm"/>
+			<exclude-mapping path="/upPortfolio"/>
+			<exclude-mapping path="/writeUFrm"/>
+			<exclude-mapping path="/mDeal"/>
+			<exclude-mapping path="/typechange"/>
+			<exclude-mapping path="/typechangee"/>
+			<exclude-mapping path="/myUPageReqM"/>
+			<exclude-mapping path="/mMember"/>
+			<exclude-mapping path="/mWarning"/>
+			<exclude-mapping path="/mWarningFrm"/>
+			<exclude-mapping path="/email"/>
+			<exclude-mapping path="/updateUFrm"/>
+			<exclude-mapping path="/findId"/>
+			<exclude-mapping path="/pwfind"/>
+			<exclude-mapping path="/Member"/>
+			<exclude-mapping path="/mdelete"/>
+			<exclude-mapping path="/dateSearch"/>
+			<exclude-mapping path="/myEPageSReqM"/>
+			<exclude-mapping path="/myUPageSReqM"/>
+			
+			<exclude-mapping path="/cashList"/>
+			<exclude-mapping path="/cashSearch"/>
+			<exclude-mapping path="/chargeCash"/>
+			<exclude-mapping path="/cashTransform"/>
+			<exclude-mapping path="/changemoney"/>
+			<exclude-mapping path="/cashCharging"/>
+			<exclude-mapping path="/getCashList"/>
+			
+			
+			<exclude-mapping path="/ulist"/>
+			<exclude-mapping path="/uboardWrite"/>
+			<exclude-mapping path="/utcontent"/>
+			<exclude-mapping path="/udcontent"/>
+			<exclude-mapping path="/uContent"/>
+			<exclude-mapping path="/timearry"/>
+			<exclude-mapping path="/timearrya"/>
+			<exclude-mapping path="/timearryb"/>
+			<exclude-mapping path="/timearryasc"/>
+			<exclude-mapping path="/timearrybsc"/>
+			<exclude-mapping path="/deadarry"/>
+			<exclude-mapping path="/timearrySc"/>
+			<exclude-mapping path="/deadarrySc"/>
+			<exclude-mapping path="/uscript"/>
+			<exclude-mapping path="/uscriptdel"/>
+			
+			
+			<exclude-mapping path="/delCBoard"/>
+			<exclude-mapping path="/upCommuFrm"/>
+			<exclude-mapping path="/cBoardUpdate"/>
+			
+			<exclude-mapping path="/inPortfolio"/>
+			<exclude-mapping path="/plist"/>
+			<exclude-mapping path="/pcontents"/>
+			<exclude-mapping path="/sortView"/>
+			<exclude-mapping path="/portUpdate"/>
+			<exclude-mapping path="/dateUp"/>
+			<exclude-mapping path="/qna"/>
+			<exclude-mapping path="/rate"/>
+			
+			<exclude-mapping path="/pcontentsc"/>
+			<exclude-mapping path="/pscript"/>
+         	<exclude-mapping path="/pscriptdel"/>
+			
+			
+			<exclude-mapping path="/qInsert"/>
+			
+			<exclude-mapping path="/portInsert"/>
+			
+			<beans:bean class="com.editube.util.SessionInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+	<context:component-scan base-package="com.editube.controller"/>
+	
+	
+	
+</beans:beans>

@@ -1,0 +1,319 @@
+@charset "UTF-8";
+
+html{
+   scroll-behavior: smooth;
+}
+
+.video {
+   position: relative;
+   padding-bottom: 56.25%;
+   height: 0;
+   overflow: hidden;
+   margin-bottom: 2em;
+}
+
+.video iframe, .video object, .video embed {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+
+/*demo style only*/
+.wrapper {
+   background-color: #FAFAFA;
+   width: 1000px;
+   margin:0 auto;
+   padding: 1px 15px 1px;
+}
+
+h1 {
+   font-size: 1.5em;
+}
+
+.button {
+   width:240px;
+   border: 1x solid black; /*---테두리 정의---*/
+   background-Color: white; /*--백그라운드 정의---*/
+   font: 12px 굴림; /*--폰트 정의---*/
+   font-weight: bold; /*--폰트 굵기---*/
+   color: black; /*--폰트 색깔---*/
+   height: 30; /*--버튼 크기---*/
+   border-radius: 30px;
+   display:inline-block;
+}
+
+
+.button:hover{
+   cursor:pointer;
+   background-color : #1C1C1C;
+   color : white;
+}
+
+.buttons{
+   border-radius:30px;
+   width:135px;
+   height:60px;
+   font-weight: bold;
+   color: black;
+   background: white;
+}
+
+.buttons:hover{
+   cursor:pointer;
+   background-color : #1C1C1C;
+   color : white;
+}
+
+.reqBtn{
+   border-radius:30px;
+   width:135px;
+   height:60px;
+   font-weight: bold;
+   color: black;
+   background: white;
+}
+
+.reqBtn:hover{
+   cursor:pointer;
+   background-color : #1C1C1C;
+   color : white;
+}
+
+#btnsw{
+   border-radius:3px;
+   border : none;
+   font-size:0.9rem;
+   padding: 0.6rem 1em;
+   background-color:#BDBDBD;
+   color:white;
+   text-align:center;
+}
+
+.titleheader{
+   background-color: #1C1C1C;
+   color: white;
+   font-size: 1.5em;
+   padding: 1rem;
+   text-align: center;
+   text-transform: uppercase;
+   width:960px;
+}
+
+.table-users {
+   border: 1px solid darken($baseColor, 5%);
+   border-radius: $borderRadius;
+   box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+   max-width: calc(100% - 2em);
+   margin: 1em auto;
+   overflow: hidden;
+   width: 1000px;
+}
+
+td{ 
+     background:white;
+     padding: $padding;
+	 text-align: center;
+     vertical-align: middle;
+     font-size: 0.95em;
+     line-height: 1.4;
+     text-align: left;
+      }
+   }
+.table-users div.titlefoot{
+   background:red;
+   color:blue;
+}
+
+.list{
+   position:absolute;
+   right:25px;
+}
+
+.req{
+   position:absolute;
+   right:75px;
+}
+
+.u-title {
+   text-align: left;
+   text-decoration: none;
+}
+.u-title a{
+   text-decoration: none;
+   color:black;
+}
+
+.u-name{
+   text-align: center;
+}
+
+.u-date{
+   text-align: center;
+}
+
+.u-bnum{
+   text-align: center;
+}
+.data-row>div {
+   display: block;
+   float: left;
+   height: 35px;
+   font-size: 14px;
+   line-height: 2.5;
+   background-color: white;
+    border: 1px 0px solid #bfbfbf;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    padding: 2px;
+    div-overflow: hidden;
+}
+
+.data-area {
+   margin: 10px 0;
+   width:1000px;
+}
+
+.title-row>div {
+   display: block;
+   float: left;
+   height: 40px;
+   font-size: 14px;
+   line-height: 2.5;
+   text-align: center;
+   background-color: #fff;
+    border: 1px solid black;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-top-width: 1px;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    text-decoration: none;
+}
+
+.paging .pno {
+   background-color: #efefef;
+   margin: 2px;
+   border: 1px solid #6c6c6c;
+   border-radius: 3px;
+   line-height: 1.5;
+   font-size: 15px;
+   height: 20px;
+}
+
+
+.econtent{
+       width: 1000px;
+       margin-top:50px;
+}
+
+
+.p-13 {
+   width: 15%;
+}
+
+.p-60 {
+   width: 60%;
+}
+
+.p-10{
+   width: 6%
+}
+
+.evalmore{
+   position:relative;
+   top:10px;
+   left:415px;
+   border-radius:30px;
+   width:135px;
+   height:60px;
+   font-weight: bold;
+   color: black;
+   background: white;
+}
+
+.up{
+   position:fixed;
+   bottom:5px;
+   right:5px;
+}
+
+.pop-layer .pop-container {
+   padding: 20px 25px;
+}
+
+.pop-layer p.ctxt {
+   color: #666;
+   line-height: 25px;
+}
+
+.pop-layer .btn-r {
+   width: 100%;
+   margin: 10px 0 20px;
+   padding-top: 10px;
+   border-top: 1px solid #DDD;
+   text-align: right;
+}
+
+.pop-layer {
+   display: none;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 560px;
+   height: auto;
+   background-color: #fff;
+   border: 5px solid #3571B5;
+   z-index: 10;
+}
+
+.dim-layer {
+   display: none;
+   position: fixed;
+   _position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 100;
+}
+
+.dim-layer .dimBg {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: #000;
+   opacity: .5;
+   filter: alpha(opacity = 50);
+}
+
+.dim-layer .pop-layer {
+   display: block;
+}
+
+.title {
+   position: relative;
+   z-index: 1;
+   border-left: 5px solid #ed2553;
+   margin: 0 0 15px;
+   padding: 10px 0 10px 50px;
+   color: #ed2553;
+   font-size: 32px;
+   font-weight: 600;
+   text-transform: uppercase;
+}
+.field textarea {
+   width: 500px;
+   height: 100px;
+   padding: 0.5rem;
+   font-size: 1rem;
+   border: 1px solid #D9D9D9;
+   border-radius: 3px;
+   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+   resize: none;
+   margin-bottom: 20px;
+}

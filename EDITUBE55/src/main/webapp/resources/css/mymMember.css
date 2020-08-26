@@ -1,0 +1,591 @@
+@font-face { 
+font-family: 'NanumSquareRound'; 
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); 
+font-weight: normal; 
+font-style: normal; 
+}
+
+/* Lazy Load Styles */
+.card-image {
+   display: block;
+   min-height: 20rem; /* layout hack */
+   background: #fff center center no-repeat;
+   background-size: cover;
+   filter: blur(3px); /* blur the lowres image */
+}
+
+.card-image > img {
+   display: block;
+   width: 100%;
+   opacity: 0; /* visually hide the img element */
+}
+
+.card-image.is-loaded {
+   filter: none; /* remove the blur on fullres image */
+   transition: filter 1s;
+}
+
+.card-list {
+   display: block;
+   margin: 1rem auto;
+   padding: 0;
+   font-size: 0;
+   text-align: center;
+   list-style: none;
+}
+
+.card {
+   display: inline-block;
+   width: 90%;
+   max-width: 20rem;
+   margin: 1rem;
+   font-size: 1rem;
+   text-decoration: none;
+   overflow: hidden;
+   box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+   transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+}
+
+.card:hover {
+   transform: translateY(-0.5rem) scale(1.0125);
+   box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+
+.card-description {
+   
+   font-family: 'NanumSquareRound'; 
+   display: block;
+   padding: 1em 0.5em;
+   color: #535353;
+   text-decoration: none;
+}
+
+.card-description > h2 {
+   margin: 0 0 0.5em;
+}
+
+.card-description > p {
+   margin: 0;
+}
+
+
+/*myEPageReqM 부분*/
+.myEPageReqMWrap{
+   width:1400px;
+   margin: 0px auto;
+   height:1500px;
+}
+.myEPageReqMWrap > .myEPageReqMaside{
+   float:left;
+}
+.myEPageReqMWrap > .myEPageReqMSection{
+   float:left;
+   width:1000px;
+   height: 1500px;
+}
+
+.myEPageReqMSection > .myEPageReqMTitle{
+   width:1000px;
+   float:left;
+   height: 125px;
+   background: #f9f9f9;
+}
+
+.myEPageReqMTitle > p{
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+   
+}
+
+.myEPageReqMSection > .myEPageReqMSearch{
+   width:1000px;
+   float:left;
+   height: 125px;
+   background: #f9f9f9;
+}
+
+.myEPageReqMSearch > p{
+   width:50%;
+   font-family: 'NanumSquareRound';
+   font-size: 1.5em;
+   font-weight: bold;
+   margin-bottom: 80px;
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+}
+
+.myEPageReqMSection > .myEPageReqMContentWrap{
+   width:1000px;
+   float:left;
+   height: 1250px; 
+   border-radius: 30px;
+}
+
+.myEPageReqMContentWrap > .myEPageReqMContentTitle{
+   float:left;
+   width:1000px;
+   height: 100px;
+}
+
+.myEPageReqMContentTitle > .dateMenu{
+   float:left;
+   width:150px;
+   height: 100px;
+   background: #f9f9f9;
+   text-align: center;
+}
+
+
+.myEPageReqMContentTitle > .contentMenu{
+   float:left;
+   width:950px;
+   height: 100px;
+   background: #f9f9f9;
+   text-align: center;
+}
+.myEPageReqMContentTitle > .nickMenu{
+   float:left;
+   width:475px;
+   height: 100px;
+   background: #f9f9f9;
+   text-align: center;
+}
+.myEPageReqMContentTitle > .adminMenu{
+   float:left;
+   width:375px;
+   height: 100px;
+   background: #f9f9f9;
+   text-align: center;
+}
+
+.myEPageReqMContentTitle > .statusMenu{
+   float:left;
+   width:550px;
+   height: 100px;
+   background: #f9f9f9;
+   text-align: center;
+}
+
+.dateMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+}
+.contentMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+   margin-left: 10px;
+}
+.nickMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+   margin-left: 10px;
+}
+.adminMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+   margin-left: 10px;
+}
+.statusMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+   margin-left: 10px;
+}
+
+.myEPageReqMContentWrap > .myEPageReqMIncontent{
+   float: left;
+   width: 1000px;
+   height: 1150px;
+}
+
+.myEPageReqMIncontent > .inDate{
+   float: left;
+   width: 150px;
+   height: 50px;
+   background: #f9f9f9;
+}
+
+
+.myEPageReqMIncontent > .inContent{
+   float: left;
+   width: 950px;
+   height: 50px;
+   background: #f9f9f9;
+}
+
+.myEPageReqMIncontent > .inNickname{
+   float: left;
+   width: 475px;
+   height: 50px;
+   background: #f9f9f9;
+}
+
+.myEPageReqMIncontent > .inAdmin{
+   float: left;
+   width: 375px;
+   height: 50px;
+   background: #f9f9f9;
+}
+.myEPageReqMIncontent > .inAdmin .memOutbtn{
+   float: left;
+   background: #f9f9f9;
+   margin-left: 140px;
+}
+.myEPageReqMIncontent > .inStatus{
+   float: left;
+   width: 475px;
+   height: 1150px;
+   background: #f9f9f9;
+}
+.myEPageReqMIncontent > .inStatus .statusbtn{
+   float: left;
+   background: #f9f9f9;
+   margin: 16px;
+}
+.inDate > p {
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   text-align: center;
+   height: 25px;
+}
+.inContent > p {
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   height: 25px;
+   line-height: 25px;
+   text-align: center;
+}
+
+.inNickname > p{
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   height: 25px;
+   line-height: 25px;
+   text-align: center;
+}
+
+
+/*myEPageCash 부분*/
+.myEPageCashWrap{
+   width:1400px;
+   margin: 0px auto;
+   height:1500px;
+}
+
+.myEPageCashWrap > .myEPageCashaside{
+   float:left;
+}
+.myEPageCashWrap > .myEPageCashSection{
+   float:left;
+   width:1100px;
+   height: 1500px;
+}
+
+.myEPageCashSection > .myEPageCashTitle{
+   width:1100px;
+   float:left;
+   height: 125px;
+}
+
+.myEPageCashTitle > .CashTitleName{
+   width:250px;
+   height: 125px;
+   background: #f9f9f9;
+   float:left;
+}
+
+.myEPageCashTitle > .myCash{
+   float:left;
+   width: 850px;
+   height: 125px;
+   background: #f9f9f9;
+}
+.CashTitleName > p{
+   float:left;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+}
+
+.myCash > p{
+   float:right;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+}
+.myEPageCashSection > .myEPageCashSearch{
+   width:1100px;
+   float:left;
+   height: 150px;
+   background: #f9f9f9;
+}
+
+.myEPageCashSearch > p{
+   width:80%;
+   font-family: 'NanumSquareRound';
+   font-size: 1.5em;
+   font-weight: bold;
+   margin-bottom: 30px;
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+}
+
+.myEPageCashSection > .myEPageCashContentWrap{
+   width:1100px;
+   float:left;
+   height: 1250px; 
+   border-radius: 30px;
+}
+
+.myEPageCashContentWrap > .myEPageCashContentTitle{
+   float:left;
+   width:1100px;
+   height: 100px;
+}
+
+.myEPageCashContentTitle > .CashdateMenu{
+   float:left;
+   width:150px;
+   height: 100px;
+   background: #f9f9f9;
+   text-align: center;
+}
+
+
+.myEPageCashContentTitle > .CashcontentMenu{
+   float:left;
+   width:950px;
+   height: 100px;
+   background: #f9f9f9;
+   text-align: center;
+}
+
+.CashdateMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+}
+.CashcontentMenu > p{
+   font-family: 'NanumSquareRound';
+   border-top :0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   padding: 10px;
+   margin-left: 10px;
+}
+
+.myEPageCashContentWrap > .myEPageCashIncontent{
+   float: left;
+   width: 1100px;
+   height: 1150px;
+}
+
+.myEPageCashIncontent > .CashinDate{
+   float: left;
+   width: 150px;
+   height: 1150px;
+   background: #f9f9f9;
+}
+
+
+.myEPageCashIncontent > .CashinContent{
+   float: left;
+   width: 950px;
+   height: 1150px;
+   background: #f9f9f9;
+}
+
+.CashinDate > p {
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   text-align: center;
+   height: 25px;
+}
+
+.CashinContent > p{
+   font-family: 'NanumSquareRound';
+   font-size: 1.2em;
+   height: 25px;
+   line-height: 25px;
+}
+
+
+
+/*myEPagePf 부분*/
+.myEPagePfWrap{
+   width:1400px;
+   margin: 0px auto;
+   height:1500px;
+}
+.myEPagePfWrap .myEPagePfaside{
+   float:left;
+   width: 300px;
+   height: 1500px;
+}
+.myEPagePfWrap .myEPagePfSection{
+   float:left;
+   width: 1100px;
+   height: 1500px;
+}
+
+.myEPagePfSection .myEPagePfTitle{
+   width: 1000px;
+   height: 100px;
+   float: left;
+   border-bottom: 0.8px solid #dedfda;
+   background: #f9f9f9;
+}
+
+.myEPagePfTitle .CashTitleName{
+   width: 65%;
+   height: 100px;
+   float: left;
+}
+
+.myEPagePfTitle .CashTitleName p{
+   float:left;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+}
+
+.myEPagePfTitle .myCash{
+   width: 35%;
+   height: 100px;
+   float: left;
+}
+
+.myEPagePfTitle .myCash p{
+   float:right;
+   font-family: 'NanumSquareRound';
+   font-size: 2em;
+   font-weight: bold;
+   margin: 0px auto;
+   padding: 30px;
+}
+
+.myEPagePfSection .UVideoBox{
+   width: 1100px;
+   float: left;
+   height:550px;
+   text-align: center;
+   background: #f9f9f9;
+}
+
+.UVideoBox iframe{
+   margin-top: 25px;
+}
+
+.myEPagePfSection .hashTag{
+   float: left;
+   width: 1100px;
+   height: 100px;
+   background: #f9f9f9;
+}
+
+
+.myEPagePfSection .hashTag p{
+   font-family: 'NanumSquareRound';
+   font-size: 1.3em;
+   float: right;
+   width: 125px;
+   margin-right: 75px;
+}
+.myEPagePfSection .introduceWrap{
+   width: 1100px;
+   background: #f9f9f9;
+   height: 70px;
+   float: left;
+   border-top: 0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+}
+.introduceWrap .introduce{
+   float: left;
+   width: 950px;
+   margin-left:75px;
+   margin-right:75px;
+   height: 75px;
+   text-align: center;
+   
+}
+
+.myEPagePfSection .introduce p{
+   font-family: 'NanumSquareRound';
+   font-size: 1.5em;
+   padding-top: 5px;
+}
+.myEPagePfSection .introduceContentWrap{
+   width: 1100px;
+   height: 575px;
+   float: left;
+   background: #f9f9f9;
+   border-top: 0.8px solid #dedfda;
+   border-bottom: 0.8px solid #dedfda;
+   }
+.introduceContentWrap .introduceContent{
+   width: 950px;
+   margin-left:75px;
+   margin-right:75px;
+   height: 575px;
+   float: left;
+}
+.myEPagePfSection .introduceContent p{
+   font-family: 'NanumSquareRound';
+}
+.myEPagePfSection .btnWrap{
+   width: 1100px;
+   height: 100px;
+   float: left;
+   background: #f9f9f9;
+}
+.btnWrap .btnDiv{
+   width: 950px;
+   margin-left:75px;
+   margin-right:75px;
+   height: 100px;
+   float: left;
+}
+
+.btnWrap button{
+   float: right;
+   margin-right: 10px;
+   margin-top: 20px;
+}
+
+.memOutbtn {
+	display: inline-block;
+	border-radius: 3px;
+	border: none;
+	font-size: 0.9rem;
+	padding: 0.6rem 1em;
+	background: #55595c;
+	border: 1px solid #55595c;
+	color: black;
+	margin: 0 0.25rem;
+	text-align: center;
+	right: 20%;
+}
+
+.memOutbtn:hover{
+	cursor:pointer;
+}
