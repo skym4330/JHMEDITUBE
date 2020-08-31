@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+1.parameterType에 1개의 Type만 올 수 있다. 
+  Type 여러개인경우 생략할 것.
+2.parameterType이 DTO인 경우 #{필드명}
+3.parameterType이 변수인 경우 #{변수명}
+4.parameterType이 Map<key,value>타입인 경우 #{key}
+5.resultType도 1개만 올수 있는데 1개 이상의 레코드를 
+  검색하는 경우 DTO타입만 명시
+6.#{} : 문자열인 경우 ''추가됨
+7.${} : 문자열 변환없이 문자 그대로 입력됨
+  (예, 컬럼명 전달시. 일반적으로는 사용 안함.)  
+8.parameterType은 생략가능하지만 가독성을 위해 비권장
+ -->
+
+<mapper namespace="com.media.dao.MemberDao">
+	
+	<select id="getPwd" parameterType="String"
+		resultType="String">
+		SELECT M_PWD FROM M WHERE M_ID=#{id}
+	</select>
+	
+	<select id="getMemInfo" parameterType="String"
+		resultType="com.media.dto.MemberDto">
+		SELECT * FROM MINFO WHERE M_ID=#{id}
+	</select>
+	
+	<insert id="memberInsert" 
+		parameterType="com.media.dto.MemberDto">
+		INSERT INTO M
+		VALUES(#{m_id},#{m_pwd},#{m_name},#{m_birth},#{m_addr},#{m_phone},DEFAULT)
+	</insert>
+	
+	<select id="idCheck" parameterType="String"
+		resultType="Integer">
+		SELECT COUNT(*) FROM MINFO WHERE M_ID=#{mid}
+	</select>
+	
+	<update id="pointUp" parameterType="String">
+		UPDATE M SET M_POINT=M_POINT+5
+		WHERE M_ID=#{mid}
+	</update>
+</mapper>
+
+
+
+
+
+
