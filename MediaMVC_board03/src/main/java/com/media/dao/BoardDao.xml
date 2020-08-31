@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.media.dao.BoardDao">
+	
+	<select id="getList" parameterType="HashMap"
+		resultType="com.media.dto.BoardDto">
+		<![CDATA[
+		SELECT * FROM BLIST_1
+		WHERE RONUM >= (${pageNum}*${cnt})-(${cnt}-1)
+			AND RONUM <= ${pageNum}*${cnt}
+		]]>
+	</select>
+	
+	<select id="getBoardCount" resultType="Integer">
+		SELECT COUNT(*) FROM BLIST_1
+	</select>
+	
+	<update id="viewUpdate" parameterType="Integer">
+		UPDATE B SET B_VIEWS = B_VIEWS+1
+		WHERE B_NUM = #{bnum}
+	</update>
+	
+	<select id="getContents" parameterType="Integer"
+		resultType="com.media.dto.BoardDto">
+		SELECT * FROM BLIST_1
+		WHERE BNUM = #{bnum}
+	</select>
+	
+	<select id="getReplyList" parameterType="Integer"
+		resultType="com.media.dto.ReplyDto">
+		SELECT * FROM RLIST
+		WHERE R_BNUM=#{bnum}
+	</select>
+	
+	<!-- selectKey 구문
+		시퀀스를 먼저 다음 번호로 바꾸고
+		그 시퀀스를 활용할 수 있도록 묶어서 작업하는 구문.
+		DTO의 해당 변수이름을 같이 지정하면
+		selectKey 구분이 실행되면서
+		해당 변수에 실행된 결과값이 저장되어,
+		이후 프로그램쪽에서 값을 사용할 수 있음.
+	 -->
+	<insert id="boardInsert" 
+		parameterType="com.media.dto.BoardDto"
+		useGeneratedKeys="true"
+		keyProperty="bnum">
+		<selectKey keyProperty="bnum"
+			resultType="int" order="BEFORE">
+			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO B
+		VALUES(${bnum},#{btitle},#{bcontents},#{bid},
+			DEFAULT,DEFAULT)
+	</insert>
+	
+	<insert id="fileInsert" parameterType="HashMap">
+		INSERT INTO BF
+		VALUES(BF_SEQ.NEXTVAL,#{bnum},
+			#{oriFileName},#{sysFileName})
+	</insert>
+	
+	<select id="getBfList" parameterType="Integer"
+		resultType="com.media.dto.BfileDto">
+		SELECT * FROM BF WHERE BF_BNUM=#{bnum}
+	</select>
+	
+	<select id="getOriName" parameterType="String"
+		resultType="String">
+		SELECT BF_ORINAME FROM BF
+		WHERE BF_SYSNAME=#{sysFileName}
+	</select>
+	
+	<insert id="replyInsert" 
+		parameterType="com.media.dto.ReplyDto">
+		INSERT INTO R 
+		VALUES(REPLY_SEQ.NEXTVAL,#{r_bnum},
+			   #{r_contents},#{r_id},DEFAULT)
+	</insert>
+	
+	<update id="boardUpdate" 
+		parameterType="com.media.dto.BoardDto">
+		UPDATE B SET 
+			B_TITLE=#{btitle}, 
+			B_CONTENTS=#{bcontents}, 
+			B_DATE=sysdate
+ 		WHERE B_NUM=#{bnum}
+	</update>
+	
+	<delete id="fileDelete" parameterType="Integer">
+		DELETE FROM BF WHERE
+		BF_BNUM=#{bnum}
+	</delete>
+	
+	<select id="getFileName" 
+		parameterType="Integer"
+		resultType="String">
+		SELECT BF_SYSNAME FROM BF
+		WHERE BF_BNUM=#{bnum}
+	</select>
+	
+	<delete id="replyDelete" parameterType="Integer">
+		DELETE FROM R WHERE
+		R_BNUM=#{bnum}
+	</delete>
+	
+	<delete id="boardDelete" parameterType="Integer">
+		DELETE FROM B WHERE
+		B_NUM=#{bnum}
+	</delete>
+	
+	<delete id="fDelByName" parameterType="String">
+		DELETE FROM BF WHERE
+		BF_SYSNAME=#{fname}
+	</delete>
+	
+	<update id="fileUpdate" parameterType="HashMap">
+		UPDATE BF SET BF_ORINAME=#{oriFileName}, BF_SYSNAME=#{sysFileName}
+		WHERE BF_BNUM=#{bnum}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
