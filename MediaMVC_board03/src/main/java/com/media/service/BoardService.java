@@ -44,7 +44,7 @@ public class BoardService {
 	//세션
 	@Autowired
 	private HttpSession session;
-
+ 
 	//페이지 당 글 개수 조정 변수
 	private int listCount = 5;
 	private int pageCount = 2;

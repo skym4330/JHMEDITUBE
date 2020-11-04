@@ -1,0 +1,64 @@
+$(".datepicker").datepicker();
+
+
+
+// datepicker 기본설정
+		$.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd',
+        closeText: '닫기', // 닫기 버튼 텍스트 변경
+        currentText: '오늘', // 오늘 텍스트 변경
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	//한글 캘린더중 월 표시를 위한 부분
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
+        showButtonPanel: true	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
+    	});
+    	
+    	
+// 입영일자 & 전역일자 "시작일"
+		$('#mil_startdate').datepicker("option", "onClose", function ( selectedDate ) {
+			$("#mil_enddate").datepicker( "option", "minDate", selectedDate );
+		});
+
+ 		// 입영일자 & 전역일자 "종료일"
+	    $('#mil_enddate').datepicker("option", "onClose", function ( selectedDate ) {
+	        $("#mil_startdate").datepicker( "option", "maxDate", selectedDate );
+	    });
+ 		
+ 		// 입사일자 & 퇴사일자 "시작일"
+ 		$("#join_day").datepicker("option", "onClose", function( selectedDate ){
+ 			$("#retire_day").datepicker("option", "minDate", selectedDate );
+ 		});
+ 		
+ 		// 입사일자 & 퇴사일자 "종료일"
+		$('#retire_day').datepicker("option", "onClose", function ( selectedDate ) {
+	        $("#join_day").datepicker( "option", "maxDate", selectedDate );
+	    });
+	    
+	    
+	    <label class="col-xs-4" for="mil_startdate">입영일자</label>
+					<input class="col-xs-6 datepicker milForm" type="text" name="mil_startdate" id="mil_startdate" value="${sawon.mil_startdate}">
+					<div class="col-xs-2">
+						<img class="date" alt="upload" src="<%=ctxPath%>/resources/images/sharp_date.png" width="25px;" height="25px;" onclick="$('#mil_startdate').datepicker('show');">
+					</div>
+					<span class="warn warnMilStartdate">입영일자를 확인해주세요.</span>
+					
+					<label class="col-xs-4" for="mil_enddate">전역일자</label>
+					<input class="col-xs-6 datepicker milForm" type="text" name="mil_enddate" id="mil_enddate" value="${sawon.mil_enddate}">
+					<div class="col-xs-2">
+						<img class="date" alt="upload" src="<%=ctxPath%>/resources/images/sharp_date.png" width="25px;" height="25px;" onclick="$('#mil_enddate').datepicker('show');">
+					</div>
+					<span class="warn warnMilEnddate">전역일자를 확인해주세요.</span>
+					
+					<label class="col-xs-4" for="join_day">*입사일자</label>
+					<input class="col-xs-6 datepicker" type="text" name="join_day" id="join_day" value="${sawon.join_day}">
+					<div class="col-xs-2">
+						<img alt="upload" src="<%=ctxPath%>/resources/images/sharp_date.png" width="25px;" height="25px;" onclick="$('#join_day').datepicker('show');" >
+					</div>
+					<span class="warn warnJoinday">입사일자를 확인해주세요.</span>
+					
+					<label class="col-xs-4" for="retire_day">퇴사일자</label>
+					<input class="col-xs-6 datepicker" type="text" name="retire_day" id="retire_day" value="${sawon.retire_day}">
+					<div class="col-xs-2">
+						<img alt="upload" src="<%=ctxPath%>/resources/images/sharp_date.png" width="25px;" height="25px;" onclick="$('#retire_day').datepicker('show');">
+					</div>
+					<span class="warn warnRetireday">퇴사일자를 확인해주세요.</span>
+					

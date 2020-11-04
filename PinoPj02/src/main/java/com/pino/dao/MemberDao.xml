@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pino.dao.MemberDao">
+
+	<select id="getListCount" resultType="Integer" parameterType="com.pino.dto.InsaDto">
+		SELECT COUNT(*) FROM INSA
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="SABUN != 0 and SABUN != '' and SABUN != null">
+				SABUN = #{SABUN}
+			</if>
+			<if test="NAME != null and NAME != '0' and NAME != ''">
+				AND NAME = #{NAME}
+			</if>
+			<if test="JOIN_YN != '' and JOIN_YN != null">
+				AND JOIN_YN = #{JOIN_YN}
+			</if>
+			<if test="PUT_YN != '' and PUT_YN != null">
+				AND PUT_YN = #{PUT_YN}
+			</if>
+			<if test="POS_GBN_CODE != '' and POS_GBN_CODE != null">
+				AND POS_GBN_CODE = #{POS_GBN_CODE}
+			</if>
+			<if test="JOIN_DAY != '' and JOIN_DAY != null">
+				AND JOIN_DAY = #{JOIN_DAY}
+			</if>
+			<if test="RETIRE_DAY != '' and RETIRE_DAY != null">
+				AND RETIRE_DAY = #{RETIRE_DAY}
+			</if>
+			<if test="JOB_TYPE != '' and JOB_TYPE != null">
+				AND JOB_TYPE = #{JOB_TYPE}
+			</if>
+		</trim>
+	</select>
+
+	<select id="updateGetList" parameterType="Integer"
+		resultType="com.pino.dto.InsaDto">
+		SELECT * FROM INSA WHERE SABUN = #{sabun}
+	</select>
+
+	<select id="getInsaList" parameterType="com.pino.dto.InsaDto"
+		resultType="com.pino.dto.InsaDto">
+		SELECT PT.* FROM (SELECT
+		ROWNUM rNum,INSA.*
+		FROM INSA
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="SABUN != '' and SABUN != null">
+				SABUN = #{SABUN}
+			</if>
+			<if test="NAME != null and NAME != ''">
+				AND NAME = #{NAME}
+			</if>
+			<if test="JOIN_YN != '' and JOIN_YN != null">
+				AND JOIN_YN = #{JOIN_YN}
+			</if>
+			<if test="PUT_YN != '' and PUT_YN != null">
+				AND PUT_YN = #{PUT_YN}
+			</if>
+			<if test="POS_GBN_CODE != '' and POS_GBN_CODE != null">
+				AND POS_GBN_CODE = #{POS_GBN_CODE}
+			</if>
+			<if test="JOIN_DAY != '' and JOIN_DAY != null">
+				AND JOIN_DAY = #{JOIN_DAY}
+			</if>
+			<if test="RETIRE_DAY != '' and RETIRE_DAY != null">
+				AND RETIRE_DAY = #{RETIRE_DAY}
+			</if>
+			<if test="JOB_TYPE != '' and JOB_TYPE != null">
+				AND JOB_TYPE = #{JOB_TYPE}
+			</if>
+		</trim>
+		ORDER BY SABUN)PT WHERE rNum BETWEEN #{startCnt} AND #{endCnt} ORDER BY SABUN
+	</select>
+
+	<update id="MemberUpdate" parameterType="com.pino.dto.InsaDto">
+		UPDATE INSA
+		<trim prefix="SET" prefixOverrides=",">
+			JOIN_DAY = #{JOIN_DAY},
+			RETIRE_DAY = #{RETIRE_DAY},
+			PUT_YN = #{PUT_YN},
+			NAME = #{NAME},
+			REG_NO = #{REG_NO},
+			ENG_NAME = #{ENG_NAME},
+			PHONE =
+			#{PHONE},
+			HP = #{HP},
+			CARRIER = #{CARRIER},
+			POS_GBN_CODE =
+			#{POS_GBN_CODE},
+			CMP_REG_NO = #{CMP_REG_NO},
+			SEX = #{SEX},
+			YEARS =
+			#{YEARS},
+			EMAIL = #{EMAIL},
+			ZIP = #{ZIP},
+			ADDR1 = #{ADDR1},
+			ADDR2 =
+			#{ADDR2},
+			DEPT_CODE = #{DEPT_CODE},
+			JOIN_GBN_CODE = #{JOIN_GBN_CODE},
+			ID = #{ID},
+			PWD = #{PWD},
+			SALARY = #{SALARY},
+			KOSA_REG_YN =
+			#{KOSA_REG_YN},
+			KOSA_CLASS_CODE = #{KOSA_CLASS_CODE},
+			MIL_YN =
+			#{MIL_YN},
+			MIL_TYPE = #{MIL_TYPE},
+			MIL_LEVEL = #{MIL_LEVEL},
+			MIL_STARTDATE = #{MIL_STARTDATE},
+			MIL_ENDDATE = #{MIL_ENDDATE},
+			JOB_TYPE = #{JOB_TYPE},
+			GART_LEVEL = #{GART_LEVEL},
+			SELF_INTRO =
+			#{SELF_INTRO},
+			CRM_NAME = #{CRM_NAME},
+			JOIN_YN = #{JOIN_YN}
+			<if test="CMP_REG_IMAGE != null and CMP_REG_IMAGE != ''">
+				,SYS_CMP_REG_IMAGE = #{SYS_CMP_REG_IMAGE},CMP_REG_IMAGE =
+				#{CMP_REG_IMAGE}
+			</if>
+			<if test="PROFILE_IMAGE != null and PROFILE_IMAGE != ''">
+				,SYS_PROFILE_IMAGE = #{SYS_PROFILE_IMAGE},PROFILE_IMAGE =
+				#{PROFILE_IMAGE}
+			</if>
+			<if test="CARRIER_IMAGE != null and CARRIER_IMAGE != ''">
+				,SYS_CARRIER_IMAGE = #{SYS_CARRIER_IMAGE},CARRIER_IMAGE =
+				#{CARRIER_IMAGE}
+			</if>
+		</trim>
+		WHERE SABUN = #{SABUN}
+	</update>
+
+	<delete id="MemberDelete" parameterType="Integer">
+		DELETE FROM INSA WHERE
+		SABUN = #{sabun}
+	</delete>
+
+	<select id="idChk" parameterType="String" resultType="Integer">
+		SELECT
+		COUNT(*) FROM INSA WHERE ID = #{id}
+	</select>
+
+	<select id="SabunChk" resultType="Integer">
+		SELECT COUNT(*) FROM INSA
+	</select>
+
+	<select id="getComList" resultType="com.pino.dto.Insa_ComDto">
+		SELECT * FROM INSA_COM
+	</select>
+
+	<insert id="MemberInsert" parameterType="com.pino.dto.InsaDto">
+		INSERT INTO INSA
+		VALUES (
+		insa_SEQ.nextval,
+		#{JOIN_DAY},
+		#{RETIRE_DAY},
+		#{PUT_YN},
+		#{NAME},
+		#{REG_NO},
+		#{ENG_NAME},
+		#{PHONE},
+		#{HP},
+		#{CARRIER},
+		#{POS_GBN_CODE},
+		#{CMP_REG_NO},
+		#{CMP_REG_IMAGE},
+		#{SEX},
+		#{YEARS},
+		#{EMAIL},
+		#{ZIP},
+		#{ADDR1},
+		#{ADDR2},
+		#{DEPT_CODE},
+		#{JOIN_GBN_CODE},
+		#{ID},
+		#{PWD},
+		#{SALARY},
+		#{KOSA_REG_YN},
+		#{KOSA_CLASS_CODE},
+		#{MIL_YN},
+		#{MIL_TYPE},
+		#{MIL_LEVEL},
+		#{MIL_STARTDATE},
+		#{MIL_ENDDATE},
+		#{JOB_TYPE},
+		#{GART_LEVEL},
+		#{SELF_INTRO},
+		#{CRM_NAME},
+		#{PROFILE_IMAGE},
+		#{CARRIER_IMAGE},
+		#{JOIN_YN},
+		#{SYS_CMP_REG_IMAGE},
+		#{SYS_PROFILE_IMAGE},
+		#{SYS_CARRIER_IMAGE}
+		)
+	</insert>
+
+</mapper>

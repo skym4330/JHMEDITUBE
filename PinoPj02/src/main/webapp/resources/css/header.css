@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.logo{
+	float: left;
+	padding-left: 30%;
+}
+.navWrap{
+	float: left;
+	padding-left: 25%;
+}
+.navWrap p{
+	margin-right:10px;
+	float: left;
+}

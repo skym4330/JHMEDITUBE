@@ -10,7 +10,7 @@
 		<div class="content">
 			<div class="fcontents">
 				<img class="footer-logo" src="resources/images/r-logo-v.png">
-				<span class="footer-txt">&copy; JIP 2020</span>
+				<span class="footer-txt">&copy; 정혜명 2020</span>
 			</div>
 		</div>
 	</div>

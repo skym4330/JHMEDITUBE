@@ -51,6 +51,7 @@ $(document).ready(function(){
 </div>
 </body>
 <script type="text/javascript">
+/*
 function check(){
 	//form 태그의 내용을 전부 가져오기
 	var frm = document.joinFrm;
@@ -70,7 +71,7 @@ function check(){
 	//모든 input에 입력이 다 되었을 경우.
 	return true;//action이 실행됨.
 }
-
+*/
 //아이디 중복 여부 확인 함수
 //이 함수의 ajax를 실행하기 위해서 
 //인터셉터 대상에서 제외해야 함.

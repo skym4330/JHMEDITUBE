@@ -18,7 +18,6 @@
  -->
 
 <mapper namespace="com.media.dao.MemberDao">
-	
 	<select id="getPwd" parameterType="String"
 		resultType="String">
 		SELECT M_PWD FROM M WHERE M_ID=#{id}

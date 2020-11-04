@@ -4,7 +4,7 @@
 		<div class="content">
 			<img class="top-left logo" src="resources/images/r-logo.jpg" 
 				onclick="gohome();">
-			<h2 class="top-left">JIP Board</h2>
+			<h2 class="top-left">정혜명 Board</h2>
 			<nav class="top-right">
 				<ul>
 					<li class="suc" id="mname">테스트님</li>
